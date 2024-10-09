@@ -1,18 +1,17 @@
 import React from 'react';
-import hospitalImage from 'D:/Study/Madical Manahement/hospital/src/images/HomePage.jpg'; // Use a relative path to your image
+import hospitalImage from './images/HomePage.jpg';
 import './Home.css';
 
 function Home() {
   return (
     <div className="home">
-      {/* Background Image */}
+
       <img 
         src={hospitalImage} 
         alt="Home" 
-        className="bgBack" 
+        className="bgBack"
       />
 
-      {/* Text Content (above the image) */}
       <div className="textContainer">
         <h2>Lorem Ipsum</h2>
         <p>

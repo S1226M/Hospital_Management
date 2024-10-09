@@ -6,7 +6,8 @@ function Layout() {
   return (
     <>
       <div className="d-flex flex-column min-vh-100 layout-container">
-        {/* Header Section */}
+
+        {/* header */}
         <header className="row align-items-center border-bottom p-3 shadow-sm bg-white header-container">
           <div className="col-3 d-flex align-items-center justify-content-center">
             <h1 className="logo-text">Management LOGO</h1>
@@ -25,33 +26,8 @@ function Layout() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link nav-link-custom" to="/room">
-                    Room
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-custom" to="/department">
-                    Department
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link nav-link-custom" to="/patientInfo">
                     Patient Info
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-custom" to="/patientDischarge">
-                    Patient Discharge
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-custom" to="/updatePatient">
-                    Update Patient
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-custom" to="/logOut">
-                    Log Out
                   </Link>
                 </li>
               </ul>
