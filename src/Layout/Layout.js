@@ -30,6 +30,11 @@ function Layout() {
                     Patient Info
                   </Link>
                 </li>
+                <li className='nav-item'>
+                  <Link className="nav-link nav-link-custom" to="/login">
+                    Login
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>

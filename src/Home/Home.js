@@ -1,5 +1,5 @@
 import React from 'react';
-import hospitalImage from './images/HomePage.jpg';
+import hospitalImage from '../images/HomePage.jpg';
 import './Home.css';
 
 function Home() {
