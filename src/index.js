@@ -8,7 +8,7 @@ import PatientInfo from './PatientInfo/PatientInfo';
 import Layout from './Layout/Layout'; 
 import PatientInfoById from './PatientInfo/PatientInfoById';
 import PatientInfoByIdAndEdit  from './PatientInfo/PatientInfoByIdAndEdit';
-import Login from './Login&Logout/Login';
+import Login from './Login&Logout/LogIn';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="patientInfo" element={<PatientInfo />} />
           <Route path="patient/:number" element={<PatientInfoById />} />
           <Route path="patient/edit/:number" element={<PatientInfoByIdAndEdit />} /> 
-          <Route path="login" element={<Login />} /> 
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

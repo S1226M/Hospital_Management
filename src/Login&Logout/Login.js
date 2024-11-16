@@ -1,8 +1,8 @@
 import React from 'react';
-import './Login.css';
+import './LogIn.css';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function SignIn() {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -40,7 +40,7 @@ function Login() {
                         <tr>
                             <td className='login-form-table-cell-btn'>
                                 <button type='submit'>Sign in</button>
-                            </td> 
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -49,4 +49,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SignIn;
