@@ -1,29 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import Home from './Home/Home';
 import AddPatient from './AddPatient/AddPatient';
 import PatientInfo from './PatientInfo/PatientInfo';
-import Layout from './Layout/Layout'; 
+import Layout from './Layout/Layout';
 import PatientInfoById from './PatientInfo/PatientInfoById';
-import PatientInfoByIdAndEdit  from './PatientInfo/PatientInfoByIdAndEdit';
-import Login from './Login&Logout/SignIn';
+import PatientInfoByIdAndEdit from './PatientInfo/PatientInfoByIdAndEdit';
+import SignIn from './Login&Logout/SignIn';
 import SignUp from './Login&Logout/SignUp';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="login" element={<Login />} />
-        <Route path="signUp" element={<SignUp />} />
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={<SignIn setIsLoggedIn={setIsLoggedIn} />} // Pass setIsLoggedIn to SignIn
+        />
+        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/layout/*"
+          element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} // Pass isLoggedIn and setIsLoggedIn to Layout
+        >
           <Route path="home" element={<Home />} />
           <Route path="addPatient" element={<AddPatient />} />
           <Route path="patientInfo" element={<PatientInfo />} />
           <Route path="patient/:number" element={<PatientInfoById />} />
-          <Route path="patient/edit/:number" element={<PatientInfoByIdAndEdit />} /> 
+          <Route path="patient/edit/:number" element={<PatientInfoByIdAndEdit />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );

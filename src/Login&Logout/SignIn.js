@@ -2,15 +2,13 @@ import React from 'react';
 import './SignIn&SignUp.css';
 import { useNavigate } from 'react-router-dom';
 
-function SignIn() {
+function SignIn({ setIsLoggedIn }) { // Accept setIsLoggedIn as a prop
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
-
-  const handleSignUpClick = () => {
-    navigate('/signup');
+    setIsLoggedIn(true); // Set the logged-in state to true
+    navigate('/layout/home'); // Navigate to the home page
   };
 
   return (
@@ -40,14 +38,6 @@ function SignIn() {
           Sign In
         </button>
       </form>
-      <div className="form-footer">
-        <p>
-          Don't have an account?{' '}
-          <span className="signup-link" onClick={handleSignUpClick}>
-            Create an Account
-          </span>
-        </p>
-      </div>
     </div>
   );
 }
