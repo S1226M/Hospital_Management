@@ -21,26 +21,24 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
           <nav>
             <ul className="nav justify-content-end nav-links">
               <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/home">
+                <Link className="nav-link nav-link-custom" to="/layout/home">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/addPatient">
+                <Link className="nav-link nav-link-custom" to="/layout/addPatient">
                   Add Patient
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/patientInfo">
+                <Link className="nav-link nav-link-custom" to="/layout/patientInfo">
                   Patient Info
                 </Link>
               </li>
               <li className="nav-item">
-                {
-                  isLoggedIn ? 
-                                (<span className="nav-link nav-link-custom" onClick={handleLogout}>Log Out</span>) 
-                             :  (<Link className="nav-link nav-link-custom" to="/login">Login</Link>)
-                }
+                <Link className="nav-link nav-link-custom" to="/login">
+                  Logout
+                </Link>
               </li>
             </ul>
           </nav>

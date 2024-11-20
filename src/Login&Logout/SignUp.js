@@ -7,46 +7,28 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
-
-  const handleSignInClick = () => {
-    navigate('/signin');
+    // Handle sign-up logic here
   };
 
   return (
-    <div className="login-page-container">
-      <h2 className="login-form-title">Welcome! 😊</h2>
-      <p className="login-subtitle">Please Create an Account below</p>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          className="login-input"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          className="login-input"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="login-input"
-        />
-        <button className="signup-btn" type="submit">
-          Sign Up
-        </button>
-      </form>
-      <div className="form-footer">
-        <p>
-          Already have an account?{' '}
-          <span className="signin-link" onClick={handleSignInClick}>
-            Sign In
-          </span>
-        </p>
+    <div className="auth-container">
+      <div className="form-wrapper">
+        <h2 className="form-title">Sign-Up</h2>
+        <p>Welcome! 😊</p>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <input type="text" placeholder="Full Name" className="form-input" required/>
+          <input type="email" placeholder="Email Address" className="form-input" required/>
+          <input type="password" placeholder="Password" className="form-input" required/>
+          <button type="submit" className="btn primary-btn" onClick={() => navigate('/layout')}>Sign Up</button>
+        </form>
+        <div className="form-footer">
+          <p>
+            Already have an account?{' '}
+            <span onClick={() => navigate('/')} className="link-text">
+              Sign In
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

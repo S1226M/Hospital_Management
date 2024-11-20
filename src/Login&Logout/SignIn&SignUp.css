@@ -1,88 +1,86 @@
-/* Page container for Sign In and Sign Up */
-/* SignIn and SignUp page container */
-.login-page-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 30px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow effect */
-  text-align: center;
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f6f9;
 }
 
+.form-wrapper {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 320px;
+}
 
-/* Form title and subtitle */
-.login-form-title {
-  font-size: 1.8rem;
+.form-title {
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #333;
 }
 
-.login-subtitle {
-  font-size: 1rem;
-  color: #777;
-  margin-bottom: 20px;
+.auth-form {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Input fields */
-.login-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.form-input {
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
-/* Buttons */
-.signin-btn, .signup-btn {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.signin-btn:hover, .signup-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Footer options */
-.form-options {
+.options-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  color: #777;
+  margin-bottom: 10px;
+  font-size: 12px;
 }
 
 .forgot-password {
-  cursor: pointer;
   color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .forgot-password:hover {
   text-decoration: underline;
 }
 
-/* Footer for navigation */
-.form-footer {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #777;
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-.signup-link, .signin-link {
+.primary-btn {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.primary-btn:hover {
+  background-color: #0056b3;
+}
+
+.form-footer {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link-text {
   color: #007bff;
   cursor: pointer;
 }
 
-.signup-link:hover, .signin-link:hover {
+.link-text:hover {
   text-decoration: underline;
 }

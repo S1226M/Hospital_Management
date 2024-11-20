@@ -12,19 +12,19 @@ import SignIn from './Login&Logout/SignIn';
 import SignUp from './Login&Logout/SignUp';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<SignIn setIsLoggedIn={setIsLoggedIn} />} // Pass setIsLoggedIn to SignIn
+          element={<SignIn setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route path="/signup" element={<SignUp />} />
         <Route
-          path="/layout/*"
-          element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} // Pass isLoggedIn and setIsLoggedIn to Layout
+          path="/layout/"
+          element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
         >
           <Route path="home" element={<Home />} />
           <Route path="addPatient" element={<AddPatient />} />
