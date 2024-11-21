@@ -4,8 +4,8 @@ import './PatientInfo.css';
 
 function PatientInfoById() {
   const { number } = useParams();
-  const [patient, setPatient] = useState({});
-  const apiurl = 'http://localhost:4000/patient/' + number;
+  const [patient, setPatient] = useState(null);
+  const apiurl = `http://localhost:4000/patient/${number}`;
 
   useEffect(() => {
     fetch(apiurl)
@@ -13,13 +13,14 @@ function PatientInfoById() {
         if (res.ok) {
           return res.json();
         } else {
-          throw new Error("Error fetching patient data");
+          throw new Error('Failed to fetch patient data');
         }
       })
       .then((data) => setPatient(data))
-  }, [number]);
+      .catch((error) => console.error('Error:', error));
+  }, [apiurl]);
 
-  if (!patient || Object.keys(patient).length === 0) {
+  if (!patient) {
     return <div>Loading patient details...</div>;
   }
 
@@ -29,32 +30,32 @@ function PatientInfoById() {
       <table className="patientDetailTable">
         <tbody>
           <tr>
-            <th><strong>ID Type</strong></th>
-            <td>{patient.idType}</td>
+            <th>ID Type</th>
+            <td>{patient.idType || 'N/A'}</td>
           </tr>
           <tr>
-            <th><strong>Number</strong></th>
+            <th>Number</th>
             <td>{patient.number}</td>
           </tr>
           <tr>
-            <th><strong>Full Name</strong></th>
-            <td>{patient.fullName}</td>
+            <th>Full Name</th>
+            <td>{patient.fullName || 'N/A'}</td>
           </tr>
           <tr>
-            <th><strong>Gender</strong></th>
-            <td>{patient.gender}</td>
+            <th>Gender</th>
+            <td>{patient.gender || 'N/A'}</td>
           </tr>
           <tr>
-            <th><strong>Symptoms</strong></th>
-            <td>{patient.symptoms}</td>
+            <th>Symptoms</th>
+            <td>{patient.symptoms || 'N/A'}</td>
           </tr>
           <tr>
-            <th><strong>Room Number</strong></th>
-            <td>{patient.roomNumber}</td>
+            <th>Room Number</th>
+            <td>{patient.roomNumber || 'N/A'}</td>
           </tr>
           <tr>
-            <th><strong>Deposit</strong></th>
-            <td>{patient.deposit}</td>
+            <th>Deposit</th>
+            <td>{patient.deposit || 'N/A'}</td>
           </tr>
         </tbody>
       </table>

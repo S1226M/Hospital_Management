@@ -25,20 +25,45 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/layout/addPatient">
-                  Add Patient
-                </Link>
+              <li className="nav-item dropdown">
+                <span className="nav-link dropdown-toggle">Patient Management</span>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/layout/addPatient">
+                      Add Patient
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/layout/patientInfo">
+                      Patient Info
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <span className="nav-link dropdown-toggle">Patient Management</span>
+                <ul className="dropdown-menu">
+                <li>
+                    <Link className="dropdown-item" to="/layout/">
+                      Doctors
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/layout/">
+                      TalkWithDoctor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/layout/">
+                      DoctorSchedule
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/layout/patientInfo">
-                  Patient Info
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/login">
+                <button onClick={handleLogout} className="btn logout-btn">
                   Logout
-                </Link>
+                </button>
               </li>
             </ul>
           </nav>

@@ -5,7 +5,7 @@ import './PatientInfo.css';
 function PatientInfoByNumberAndEdit() {
   const { number } = useParams();
   const navigate = useNavigate();
-  
+
   const [patient, setPatient] = useState({
     fullName: '',
     number: '',
@@ -15,12 +15,12 @@ function PatientInfoByNumberAndEdit() {
     deposit: '',
   });
 
-  const apiurl = 'http://localhost:4000/patient/' + number; 
+  const apiurl = 'http://localhost:4000/patient/' + number;
 
   useEffect(() => {
     fetch(apiurl)
       .then((res) => res.json())
-      .then((data) => setPatient(data)); 
+      .then((data) => setPatient(data));
   }, [apiurl]);
 
   const handleInputChange = (e) => {
@@ -37,7 +37,7 @@ function PatientInfoByNumberAndEdit() {
       },
       body: JSON.stringify(patient),
     }).then(() => {
-      navigate('/patientInfo');
+      navigate('/layout/patientInfo');
     });
   };
 

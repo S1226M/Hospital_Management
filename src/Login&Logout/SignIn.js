@@ -17,8 +17,8 @@ function SignIn({ setIsLoggedIn }) {
         <h2 className="form-title">Sign-In</h2>
         <p>Welcome! 😊</p>
         <form onSubmit={handleSubmit} className="auth-form">
-          <input type="email" placeholder="Email Address" className="form-input" required/>
-          <input type="password" placeholder="Password" className="form-input" required/>
+          <input type="email" placeholder="Email Address" className="form-input" />
+          <input type="password" placeholder="Password" className="form-input" />
           <div className="options-container">
             <span className="forgot-password">Forgot password?</span>
           </div>

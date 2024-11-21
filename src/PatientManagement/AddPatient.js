@@ -13,12 +13,10 @@ function AddPatient() {
     deposit: "",
   });
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-
-    console.log("Sending data to API:", data);
+    e.preventDefault();
 
     const apiUrl = "http://localhost:4000/patient";
 
@@ -29,11 +27,11 @@ function AddPatient() {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((result) => {
-        navigate("/patientInfo");
-      })
-      .catch((error) => console.error("Error:", error));
+    .then((res) => res.json())
+    .then((result) => {
+      navigate("/layout/patientInfo");
+    })
+    .catch((error) => console.error("Error:", error));
   };
 
   return (
@@ -104,7 +102,7 @@ function AddPatient() {
                     onChange={(e) =>
                       setData({ ...data, gender: e.target.value })
                     }
-                  />{" "}
+                  />
                   Female
                 </label>
               </div>

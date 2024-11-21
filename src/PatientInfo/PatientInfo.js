@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import './PatientInfo.css'; 
+import { Link } from 'react-router-dom';
+import './PatientInfo.css'
 
 function PatientInfo() {
   const [data, setData] = useState([]);
@@ -19,7 +19,7 @@ function PatientInfo() {
     })
       .then(() => {
         setData(data.filter((patient) => patient.number !== number));
-      })
+      });
   };
 
   const formattedPatients = data.map((patient) => (
@@ -29,12 +29,12 @@ function PatientInfo() {
       <td>{patient.number || patient.Number}</td> 
       <td>{patient.roomNumber || patient.ROOM_NO}</td>
       <td>
-        <Link className="btn btn-info" to={'/patient/' + patient.number}>
+        <Link className="btn btn-info" to={'/layout/patient/' + patient.number}>
           Read More
         </Link>
       </td>
       <td>
-        <Link className="btn btn-warning" to={'/patient/edit/' + patient.number}>
+        <Link className="btn btn-warning" to={'/layout/patient/edit/' + patient.number}>
           Edit
         </Link>
       </td>
