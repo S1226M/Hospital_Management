@@ -41,7 +41,7 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle">Patient Management</span>
+                <span className="nav-link dropdown-toggle">Docotr Management</span>
                 <ul className="dropdown-menu">
                 <li>
                     <Link className="dropdown-item" to="/layout/">

@@ -2,7 +2,7 @@ import React from "react";
 
 function DoctorInfo(){
     return(
-        <div className="doctorInfoContainer">
+        <div className="doctorInfoContainer">zccddc
             <h2 className="doctorInfo">Doctor Information</h2>
             <table>
                 <tr>
@@ -13,7 +13,6 @@ function DoctorInfo(){
                     <th>Email Id</th>
                     <th>Availability</th>
                 </tr>
-                <tbody>{formattedDoctors}</tbody>
             </table>
         </div>
     )
