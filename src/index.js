@@ -13,6 +13,11 @@ import SignUp from './Login&Logout/SignUp';
 import TalkWithDoctor from './DoctorManagement/TalkWithDoctor';
 import DoctorInfo from './DoctorManagement/DoctorInfo';
 import DoctorSchedule from './DoctorManagement/DoctorSchedule';
+import AdminLayout from './AdminManagement/AdminLayout';
+import AdminDashboard from './AdminManagement/AdminDashboard';
+import AddStaff from './AdminManagement/AddStaff';
+import ViewStaff from './AdminManagement/ViewStaff';
+import DepartmentManagement from './AdminManagement/DepartmentManagement';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,6 +36,12 @@ function App() {
           <Route path="talkWithDoctor" element={<TalkWithDoctor />} />
           <Route path="doctorInfo" element={<DoctorInfo />} />
           <Route path="doctorSchedule" element={<DoctorSchedule />} />
+        </Route>
+        <Route path="admin" element={<AdminLayout />} >
+          <Route path="adminDashboard" element={<AdminDashboard />} />
+          <Route path="addStaff" element={<AddStaff />}/>
+          <Route path="viewStaff" element={<ViewStaff />} />
+          <Route path="departmentManagement" element={<DepartmentManagement />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

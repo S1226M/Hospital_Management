@@ -11,74 +11,65 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
   };
 
   return (
-    <div className="d-flex flex-column min-vh-100 layout-container">
-      {/* Header */}
-      <header className="row align-items-center border-bottom p-3 shadow-sm bg-white header-container">
-        <div className="col-3 d-flex align-items-center justify-content-center">
-          <h1 className="logo-text">Management LOGO</h1>
-        </div>
-        <div className="col">
-          <nav>
-            <ul className="nav justify-content-end nav-links">
-              <li className="nav-item">
-                <Link className="nav-link nav-link-custom" to="/layout/home">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle">Patient Management</span>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" to="/layout/addPatient">
-                      Add Patient
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/layout/patientInfo">
-                      Patient Info
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle">Docotr Management</span>
-                <ul className="dropdown-menu">
+    <div className="layout-container d-flex">
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <h2 className="logo-text">Hospital Management</h2>
+        <nav>
+          <ul className="nav flex-column">
+            <li>
+              <Link className="nav-link nav-link-custom" to="/layout/home">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link nav-link-custom" to="/layout/addPatient">
+                Add Patient
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link nav-link-custom" to="/layout/patientInfo">
+                Patient Info
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <span className="nav-link dropdown-toggle">Doctor Management</span>
+              <ul className="dropdown-menu">
                 <li>
-                    <Link className="dropdown-item" to="/layout/">
-                      Doctors
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/layout/">
-                      TalkWithDoctor
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/layout/">
-                      DoctorSchedule
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <button onClick={handleLogout} className="btn logout-btn">
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </nav>
+                  <Link className="dropdown-item" to="/layout/">
+                    Doctors
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/layout/">
+                    Talk with Doctor
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/layout/">
+                    Doctor Schedule
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button onClick={handleLogout} className="btn logout-btn">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      {/* Main Content Area */}
+      <main className="main-content">
+        <header className="header-container">
+          <h1>Welcome to the Hospital Management System</h1>
+        </header>
+        <div className="content-area">
+          <Outlet />
         </div>
-      </header>
-
-      {/* Content Section */}
-      <main className="flex-grow-1 d-flex align-items-center justify-content-center">
-        <Outlet />
       </main>
-
-      {/* Footer Section */}
-      <footer className="text-center p-3 footer-container">
-        <p>&copy; 2024 Hospital Management System</p>
-      </footer>
     </div>
   );
 }
