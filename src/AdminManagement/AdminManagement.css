@@ -87,4 +87,96 @@
       padding: 10px;
     }
   }
+
+/* AddStaff Form Styling */
+.add-staff-form {
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-staff-form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.add-staff-form-cell {
+  padding: 12px 10px;
+  font-size: 16px;
+  color: #333;
+  vertical-align: middle;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.gender-options label {
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.gender-options input {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .add-staff-form {
+    width: 90%;
+  }
+
+  .add-staff-form-title {
+    font-size: 20px;
+  }
+
+  .add-staff-form-cell {
+    font-size: 14px;
+  }
+
+  .input-field {
+    font-size: 13px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+  }
+}
   

@@ -22,23 +22,20 @@ function PatientInfo() {
       });
   };
 
+  let i = 0;
   const formattedPatients = data.map((patient) => (
     <tr key={patient.number}>
-      <td>{patient.number}</td>
+      <td>{++i}</td>
       <td>{patient.fullName || patient.Name}</td> 
       <td>{patient.number || patient.Number}</td> 
       <td>{patient.roomNumber || patient.ROOM_NO}</td>
       <td>
-        <Link className="btn btn-info" to={'/layout/patient/' + patient.number}>
+        <Link className="btn btn-info" style={{ marginRight: '20px' }} to={'/layout/patient/' + patient.number}>
           Read More
         </Link>
-      </td>
-      <td>
-        <Link className="btn btn-warning" to={'/layout/patient/edit/' + patient.number}>
+        <Link className="btn btn-warning" style={{ marginRight: '20px' }} to={'/layout/patient/edit/' + patient.number}>
           Edit
         </Link>
-      </td>
-      <td>
         <button className="btn btn-danger" onClick={() => handleDelete(patient.number)}>
           Delete
         </button>
@@ -52,11 +49,11 @@ function PatientInfo() {
       <table className="table">
         <thead>
           <tr>
-            <th>No.</th>
-            <th>Patient Name</th>
-            <th>Number</th>
-            <th>Room</th>
-            <th>Actions</th>
+            <th className='Fild'>No.</th>
+            <th className='Fild'>Patient Name</th>
+            <th className='Fild'>Number</th>
+            <th className='Fild'>Room</th>
+            <th className='Fild'>Actions</th>
           </tr>
         </thead>
         <tbody>{formattedPatients}</tbody>

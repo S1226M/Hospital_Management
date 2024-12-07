@@ -91,6 +91,7 @@
 .header-container {
   background-color: #ffffff;
   padding: 20px;
+  height: 70px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -113,6 +114,7 @@
 }
 
 .logout-btn {
+  float: right;
   background-color: transparent;
   border: 1px solid #007bff;
   color: #007bff;
@@ -126,4 +128,8 @@
 .logout-btn:hover {
   background-color: #007bff;
   color: white;
+}
+
+.Title{
+  float: left;
 }

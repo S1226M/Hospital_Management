@@ -17,6 +17,8 @@
 
 /* Text container styling */
 .textContainer {
+  margin-left: 70px;
+  height: 52%;
   position: absolute;
   top: 60%;
   left: 22%;
@@ -27,6 +29,7 @@
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   border-radius: 10px;
   max-width: 600px;
+  margin-top: 40px;
   z-index: 1; /* Ensure text is above the image */
 }
 

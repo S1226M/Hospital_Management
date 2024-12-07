@@ -1,78 +1,175 @@
-/* Container styling */
+/* PatientInfo Styling */
 .patientInfoContainer {
   width: 80%;
-  margin: 40px auto;
-  padding: 30px;
+  margin: 20px auto;
+  padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
-/* Heading styling */
 .patientInfoHeading {
   text-align: center;
   font-size: 24px;
   color: #333;
-  margin-bottom: 30px;
-}
-
-/* Table styling */
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 18px;
-  text-align: left;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-.table th {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px;
-  border-bottom: 2px solid #ddd;
-  text-align: center;
+.table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
+.table th,
 .table td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
   text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
 }
 
-/* Button styling */
+.table th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
 .btn {
-  padding: 10px 16px;
   border: none;
   border-radius: 4px;
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-info {
   background-color: #17a2b8;
-  color: white;
+  color: #fff;
+}
+
+.btn-info:hover {
+  background-color: #138496;
 }
 
 .btn-warning {
   background-color: #ffc107;
-  color: black;
+  color: #333;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
 }
 
 .btn-danger {
   background-color: #dc3545;
-  color: white;
+  color: #fff;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  color: white;
+.btn-danger:hover {
+  background-color: #c82333;
 }
 
-/* Input and form styling */
-.patientEditForm input {
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .patientInfoContainer {
+    width: 95%;
+  }
+  
+  .table th,
+  .table td {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+/* PatientInfoById Styling */
+/* General Container Styling */
+.patientDetailContainer {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for readability */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading Styling */
+.patientDetailHeading {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333; /* Dark gray for better readability */
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.patientDetailTable {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border-collapse: collapse;
+  background-color: #fff; /* Clean white table background */
+}
+
+.patientDetailTable th,
+.patientDetailTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd; /* Light gray borders */
+  font-size: 1rem;
+}
+
+/* Header Styling */
+.patientDetailTable th {
+  color: black;
+  font-weight: bold;
+}
+
+/* Row Styling */
+.patientDetailTable tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray alternating rows */
+}
+
+.patientDetailTable tr:hover {
+  background-color: #e0f7fa; /* Light teal hover effect */
+}
+
+/* Table Data Styling */
+.patientDetailTable td {
+  color: #555; /* Slightly darker gray for text */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .patientDetailContainer {
+    padding: 15px;
+  }
+
+  .patientDetailHeading {
+    font-size: 1.5rem;
+  }
+
+  .patientDetailTable th,
+  .patientDetailTable td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+.Fild{
+  color: black;
 }

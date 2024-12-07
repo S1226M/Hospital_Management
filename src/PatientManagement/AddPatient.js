@@ -54,24 +54,24 @@ function AddPatient() {
             </td>
           </tr>
           <tr>
-            <td className="form-table-cell">Number</td>
-            <td className="form-table-cell">
-              <input
-                onChange={(e) => setData({ ...data, number: e.target.value })}
-                type="text"
-                value={data.number}
-                required
-                className="input-field"
-              />
-            </td>
-          </tr>
-          <tr>
             <td className="form-table-cell">Full Name</td>
             <td className="form-table-cell">
               <input
                 onChange={(e) => setData({ ...data, fullName: e.target.value })}
                 type="text"
                 value={data.fullName}
+                required
+                className="input-field"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="form-table-cell">Phone Number</td>
+            <td className="form-table-cell">
+              <input
+                onChange={(e) => setData({ ...data, number: e.target.value })}
+                type="text"
+                value={data.number}
                 required
                 className="input-field"
               />

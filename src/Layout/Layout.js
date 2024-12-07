@@ -52,11 +52,6 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
                 </li>
               </ul>
             </li>
-            <li>
-              <button onClick={handleLogout} className="btn logout-btn">
-                Logout
-              </button>
-            </li>
           </ul>
         </nav>
       </aside>
@@ -64,7 +59,10 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
       {/* Main Content Area */}
       <main className="main-content">
         <header className="header-container">
-          <h1>Welcome to the Hospital Management System</h1>
+          <h1 className='Title'>Welcome to the Hospital Management System</h1>
+              <button onClick={handleLogout} className="btn logout-btn">
+                Logout
+              </button>
         </header>
         <div className="content-area">
           <Outlet />

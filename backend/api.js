@@ -23,17 +23,17 @@ mongoose.connect(connectionString).then(() => {
         res.send(data);
     });
 
-    // Delete patient by number
-    app.delete('/patient/:number', async (req, res) => {
-        const data = await Patient.deleteOne({ number: req.params.number });
-        res.send(data);
-    });
-
     // Add new patient
     app.post('/patient', async (req, res) => {
         const patient = new Patient({ ...req.body });
         const savedPatient = await patient.save();
         res.send(savedPatient);
+    });
+
+    // Delete patient by number
+    app.delete('/patient/:number', async (req, res) => {
+        const data = await Patient.deleteOne({ number: req.params.number });
+        res.send(data);
     });
 
     // Update patient by number
