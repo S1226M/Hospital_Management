@@ -18,6 +18,7 @@ import AdminDashboard from './AdminManagement/AdminDashboard';
 import AddStaff from './AdminManagement/AddStaff';
 import ViewStaff from './AdminManagement/ViewStaff';
 import DepartmentManagement from './AdminManagement/DepartmentManagement';
+import ViewStaffById from './AdminManagement/ViewStaffById';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,6 +43,7 @@ function App() {
           <Route path="addStaff" element={<AddStaff />}/>
           <Route path="viewStaff" element={<ViewStaff />} />
           <Route path="departmentManagement" element={<DepartmentManagement />} />
+          <Route path="viewStaffById/:id" element={<ViewStaffById />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

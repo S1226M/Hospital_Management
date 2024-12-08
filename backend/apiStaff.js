@@ -26,6 +26,11 @@ mongoose.connect(connectionString).then(() => {
                 // res.send("data added");
         });
 
+        app.delete('/staff/:number', async (req, res) => {
+            const data = await Staff.deleteOne({ number: req.params.number });
+            res.send(data);
+        });
+
         app.listen(5000, () => {
             console.log("Server is running on port 5000");
         });
