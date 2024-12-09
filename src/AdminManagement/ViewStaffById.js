@@ -46,43 +46,43 @@ function ViewStaffById() {
         <tbody>
           <tr>
             <th>ID</th>
-            <td>{staff.id || 'N/A'}</td>
+            <td>{staff.id}</td>
           </tr>
           <tr>
             <th>Full Name</th>
-            <td>{staff.fullName || 'N/A'}</td>
+            <td>{staff.fullName}</td>
           </tr>
           <tr>
             <th>Number</th>
-            <td>{staff.number || 'N/A'}</td>
+            <td>{staff.number}</td>
           </tr>
           <tr>
             <th>Gender</th>
-            <td>{staff.gender || 'N/A'}</td>
+            <td>{staff.gender}</td>
           </tr>
           <tr>
             <th>Street</th>
-            <td>{staff.street || 'N/A'}</td>
+            <td>{staff.street}</td>
           </tr>
           <tr>
             <th>City</th>
-            <td>{staff.city || 'N/A'}</td>
+            <td>{staff.city}</td>
           </tr>
           <tr>
             <th>State</th>
-            <td>{staff.state || 'N/A'}</td>
+            <td>{staff.state}</td>
           </tr>
           <tr>
             <th>Pin</th>
-            <td>{staff.pin || 'N/A'}</td>
+            <td>{staff.pin}</td>
           </tr>
           <tr>
             <th>Country</th>
-            <td>{staff.country || 'N/A'}</td>
+            <td>{staff.country}</td>
           </tr>
           <tr>
             <th>Department</th>
-            <td>{staff.department || 'N/A'}</td>
+            <td>{staff.department}</td>
           </tr>
         </tbody>
       </table>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './AdminManagement.css';
+
 
 function ViewStaff() {
   const [data, setData] = useState([]);
@@ -28,24 +30,25 @@ function ViewStaff() {
       <td>{staff.fullName}</td>
       <td>{staff.number}</td>
       <td>{staff.gender}</td>
-      <td>{staff.street}</td>
+      {/* <td>{staff.street}</td>
       <td>{staff.city}</td>
       <td>{staff.state}</td>
       <td>{staff.pin}</td>
       <td>{staff.country}</td>
-      <td>{staff.department}</td>
+      <td>{staff.department}</td> */}
       <td>
         <Link
           className="btn btn-info"
           style={{ marginRight: "20px" }}
-          to={"/layout/patient/" + staff.number}
+          to={"" + staff.number}
+          // /admin/viewStaff
         >
           Read More
         </Link>
         <Link
           className="btn btn-warning"
           style={{ marginRight: "20px" }}
-          to={"/layout/patient/edit/" + staff.number}
+          to={"" + staff.number}
         >
           Edit
         </Link>
@@ -60,8 +63,8 @@ function ViewStaff() {
   ));
 
   return (
-    <div className="patientInfoContainer">
-      <h2 className="patientInfoHeading">Patient Information</h2>
+    <div className="staffInfoContainer">
+      <h2 className="staffInfoHeading">Staff Information</h2>
       <table className="table">
         <thead>
           <tr>
@@ -70,13 +73,14 @@ function ViewStaff() {
             <th className="Fild">Staff Name</th>
             <th className="Fild">Number</th>
             <th className="Fild">Gender</th>
-            <th className="Fild">Street</th>
+            <th className="Fild">Actions</th>
+            {/* <th className="Fild">Street</th>
             <th className="Fild">City</th>
             <th className="Fild">State</th>
             <th className="Fild">Pin</th>
             <th className="Fild">Country</th>
             <th className="Fild">Department</th>
-            <th className="Fild">Actions</th>
+            <th className="Fild">Actions</th> */}
           </tr>
         </thead>
         <tbody>{formatStaff}</tbody>
