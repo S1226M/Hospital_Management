@@ -30,13 +30,21 @@ function PatientInfo() {
       <td>{patient.number || patient.Number}</td> 
       <td>{patient.roomNumber || patient.ROOM_NO}</td>
       <td>
-        <Link className="btn btn-info" style={{ marginRight: '20px' }} to={'/layout/patient/' + patient.number}>
+        <Link 
+          className="btn btn-info" 
+          style={{ marginRight: '20px' }} 
+          to={'/layout/patient/' + patient.number}>
           Read More
         </Link>
-        <Link className="btn btn-warning" style={{ marginRight: '20px' }} to={'/layout/patient/edit/' + patient.number}>
+        <Link 
+          className="btn btn-warning" 
+          style={{ marginRight: '20px' }} 
+          to={'/layout/patient/edit/' + patient.number}>
           Edit
         </Link>
-        <button className="btn btn-danger" onClick={() => handleDelete(patient.number)}>
+        <button 
+          className="btn btn-danger" 
+          onClick={() => handleDelete(patient.number)}>
           Delete
         </button>
       </td>

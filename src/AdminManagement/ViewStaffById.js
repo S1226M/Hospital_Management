@@ -1,38 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-function ViewStaffById() {
-  const { id } = useParams(); // Extract `id` from the URL
+function ViewStaffByNumber() {
+  const { number } = useParams(); // Fetch number from the URL
   const [staff, setStaff] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const apiurl = `http://localhost:5000/staff/${id}`;
+    // Correct API URL: /staff/:number
+    const apiurl = `http://localhost:5000/staff/${number}`;
 
     fetch(apiurl)
       .then((res) => {
         if (!res.ok) {
-          throw new Error('Failed to fetch staff details');
+          throw new Error('Failed to fetch staff data');
         }
         return res.json();
       })
-      .then((data) => {
-        setStaff(data);
-        setLoading(false);
-      })
+      .then((data) => setStaff(data))
       .catch((err) => {
-        setError(err.message);
-        setLoading(false);
+        console.error(err);
+        setError('Error fetching staff details');
+        setStaff(null);
       });
-  }, [id]);
-
-  if (loading) {
-    return <p>Loading staff details...</p>;
-  }
+  }, [number]); // Re-run the effect if the number changes
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p>{error}</p>;
   }
 
   if (!staff) {
@@ -45,44 +39,40 @@ function ViewStaffById() {
       <table className="staffDetailTable">
         <tbody>
           <tr>
-            <th>ID</th>
-            <td>{staff.id}</td>
+            <th>Number</th>
+            <td>{staff.number || 'N/A'}</td>
           </tr>
           <tr>
             <th>Full Name</th>
-            <td>{staff.fullName}</td>
-          </tr>
-          <tr>
-            <th>Number</th>
-            <td>{staff.number}</td>
+            <td>{staff.fullName || 'N/A'}</td>
           </tr>
           <tr>
             <th>Gender</th>
-            <td>{staff.gender}</td>
+            <td>{staff.gender || 'N/A'}</td>
           </tr>
           <tr>
             <th>Street</th>
-            <td>{staff.street}</td>
+            <td>{staff.street || 'N/A'}</td>
           </tr>
           <tr>
             <th>City</th>
-            <td>{staff.city}</td>
+            <td>{staff.city || 'N/A'}</td>
           </tr>
           <tr>
             <th>State</th>
-            <td>{staff.state}</td>
+            <td>{staff.state || 'N/A'}</td>
           </tr>
           <tr>
             <th>Pin</th>
-            <td>{staff.pin}</td>
+            <td>{staff.pin || 'N/A'}</td>
           </tr>
           <tr>
             <th>Country</th>
-            <td>{staff.country}</td>
+            <td>{staff.country || 'N/A'}</td>
           </tr>
           <tr>
             <th>Department</th>
-            <td>{staff.department}</td>
+            <td>{staff.department || 'N/A'}</td>
           </tr>
         </tbody>
       </table>
@@ -90,4 +80,4 @@ function ViewStaffById() {
   );
 }
 
-export default ViewStaffById;
+export default ViewStaffByNumber;

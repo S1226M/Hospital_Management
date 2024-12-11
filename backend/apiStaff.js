@@ -18,12 +18,26 @@ mongoose.connect(connectionString).then(() => {
             res.send(data);
         });
 
+        //Get by number
+        // Backend Route to get staff by their number
+app.get('/staff/:number', async (req, res) => {
+    try {
+      const data = await Staff.findOne({ number: req.params.number });
+      if (!data) {
+        return res.status(404).send({ message: 'Staff not found' });
+      }
+      res.send(data);
+    } catch (error) {
+      res.status(500).send({ message: 'Error fetching staff data', error });
+    }
+  });
+  
+
         // Add a new doctor
         app.post('/staff', async (req, res) => {
                 const staff = new Staff({ ...req.body });
                 const savedStaff = await staff.save();
                 res.send(savedStaff);
-                // res.send("data added");
         });
 
         app.delete('/staff/:number', async (req, res) => {

@@ -42,8 +42,8 @@ function App() {
           <Route path="adminDashboard" element={<AdminDashboard />} />
           <Route path="addStaff" element={<AddStaff />}/>
           <Route path="viewStaff" element={<ViewStaff />} />
-          <Route path="departmentManagement" element={<DepartmentManagement />} />
           <Route path="viewStaffById/:id" element={<ViewStaffById />} />
+          <Route path="departmentManagement" element={<DepartmentManagement />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
