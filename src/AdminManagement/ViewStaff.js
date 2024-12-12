@@ -15,42 +15,43 @@ function ViewStaff() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const handleDelete = (id) => {
-    fetch("http://localhost:5000/staff/" + id, {
+  const handleDelete = (number) => {
+    fetch(`http://localhost:5000/staff/${number}`, {
       method: "DELETE",
     })
-    .then(() => {
-      setData(data.filter((staff) => staff.id !== id));
-    })
-    .catch((error) => console.error("Error deleting staff:", error));
+      .then(() => {
+        setData(data.filter((staff) => staff.number !== number));
+      })
+      .catch((error) => console.error("Error deleting staff:", error));
   };
 
   let i = 0;
   const formatStaff = data.map((staff) => (
-    <tr key={staff.id}>
+    <tr key={staff.number}>
       <td>{++i}</td>
-      <td>{staff.id}</td>
-      <td>{staff.fullName}</td>
       <td>{staff.number}</td>
+      <td>{staff.fullName}</td>
       <td>{staff.gender}</td>
       <td>
-      <Link
-        className="btn btn-info"
-        style={{ marginRight: "20px" }}
-        to={`/admin/viewStaffByNumber/${staff.number}`}
-      >
-      Read More
-      </Link>
+        <Link
+          className="btn btn-info"
+          style={{ marginRight: "20px" }}
+          to={`/admin/viewStaffByNumber/${staff.number}`} // Navigate by 'number'
+        >
+          Read More
+        </Link>
+
         <Link
           className="btn btn-warning"
           style={{ marginRight: "20px" }}
-          to={"" + staff.id}
+          to={`/admin/editStaff/${staff.number}`} // Navigate to edit page
         >
           Edit
         </Link>
+
         <button
           className="btn btn-danger"
-          onClick={() => handleDelete(staff.id)}
+          onClick={() => handleDelete(staff.number)}
         >
           Delete
         </button>
@@ -64,12 +65,11 @@ function ViewStaff() {
       <table className="table">
         <thead>
           <tr>
-            <th className="Fild">No.</th>
-            <th className="Fild">Id</th>
-            <th className="Fild">Staff Name</th>
-            <th className="Fild">Number</th>
-            <th className="Fild">Gender</th>
-            <th className="Fild">Actions</th>
+            <th>No.</th>
+            <th>Number</th>
+            <th>Staff Name</th>
+            <th>Gender</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>{formatStaff}</tbody>
