@@ -56,20 +56,25 @@ function EditStaff() {
             },
             body: JSON.stringify(staff),
         })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to update staff details");
-                }
-                navigate('/admin/viewStaff');
-            })
-            .then((data) => {
-                console.log("Staff updated successfully:", data);
-                alert("Staff details updated!");
-            })
-            .catch((err) => {
-                console.error(err);
-                alert("Error updating staff details");
-            });
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to update staff details");
+            }
+            navigate('/admin/viewStaff');
+        })
+        .then((data) => {
+            console.log("Staff updated successfully:", data);
+            alert("Staff details updated!");
+        })
+        .catch((err) => {
+            console.error(err);
+            alert("Error updating staff details");
+        });
+
+        const validDepartments = ["Pediatrics","Orthopedics","Cardiology","Emergency","Urology","Gastroenterology","Pathology"]
+        if(!validDepartments.includes(staff.department)){
+            alert("Invalid Department");
+        }
     };
 
     if (error) {

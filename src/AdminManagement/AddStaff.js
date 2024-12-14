@@ -16,24 +16,38 @@ function AddStaff(){
   });
 
   const navigate = useNavigate();
-  
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const apiUrl = "http://localhost:5000/staff";
 
-    fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then((res) => res.json())
-    .then((result) => {
-      navigate("/admin/viewStaff");
-    })
-    .catch((error) => console.error("Error:", error));
+    //number validation
+    if((data.number).length !== 10){
+      alert("Invalid Number. Please enter 10 digit number");
+      return;
+    }
+
+    //pin validation
+    else if((data.pin).length !== 6){
+      alert("Invalid Pin. Please enter 6 digit pin");
+      return;
+    }
+
+    //all done then after add staff
+    else{
+      fetch(apiUrl, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => res.json())
+      .then((result) => {
+        navigate("/admin/viewStaff");
+      })
+      .catch((error) => console.error("Error:", error));
+    }
   }
     return(
         <form className="add-staff-form" onSubmit={handleSubmit}>
@@ -69,13 +83,15 @@ function AddStaff(){
                     <tr>
                         <td className="add-staff-form-cell">Phone Number</td>
                         <td className="add-staff-form-cell">
-                          <input
-                            className="input-field"
-                            type="text"
-                            value={data.number}
-                            onChange={(e) => setData({ ...data, number: e.target.value })}
-                            required
-                          />
+                        <input
+                          type="text"
+                          value={data.number}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/[^0-9]/g, "");
+                            setData({ ...data, number: value });
+                          }}
+                          placeholder="Enter 10-digit number"
+                        />
                         </td>
                     </tr>
                     <tr>
@@ -164,7 +180,6 @@ function AddStaff(){
                                 <option>Gynecology</option>
                                 <option>Emergency</option>
                                 <option>Urology</option>
-                                <option>Gastroenterology</option>
                                 <option>Gastroenterology</option>
                                 <option>Pathology</option>
                             </select>
