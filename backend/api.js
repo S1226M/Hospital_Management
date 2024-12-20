@@ -46,6 +46,28 @@ mongoose.connect(connectionString).then(() => {
         res.send(updatedPatient);
     });
 
+    //If foom is occupied then that room is not available and remaining all are available send that available room
+    // Get all occupied rooms
+    app.get('/available-rooms', async (req, res) => {
+        try {
+            // Fetch all occupied room numbers
+            const patients = await Patient.find({}, 'roomNumber');
+            const occupiedRooms = patients.map(patient => patient.roomNumber);
+        
+            // Define all rooms (assuming these are predefined)
+            const allRooms = ['101', '102', '103', '104', '105', '201', '202'];
+        
+            // Filter out occupied rooms
+            const availableRooms = allRooms.filter(room => !occupiedRooms.includes(room));
+        
+            res.send(availableRooms);
+        } catch (err) { // Corrected the variable name here
+            console.error("Error fetching available rooms:", err); // `err` now properly handles the exception
+            res.status(500).send({ error: "Server error" });
+        }
+    });
+
+
     app.listen(4000, () => {
         console.log("Server is running on port 4000");
     });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddPatient.css";
 
@@ -13,7 +13,24 @@ function AddPatient() {
     deposit: "",
   });
 
+  const [availableRooms,setAvailableRooms] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    //get available room from the database and set it to the state
+    const fetchAvailableRooms = async () => {
+      try{
+        const response = await fetch("http://localhost:4000/available-rooms");
+        const rooms = await response.json();
+        setAvailableRooms(rooms);
+        setData((data) => ({ ...data, roomNumber: "" })); /////////////////////////////////i went to set data not empty but as per user choice like .taregt.val
+      } 
+      catch (error) {
+        console.error("Error fetching available rooms:", error);
+      }
+    }
+    fetchAvailableRooms();
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -122,6 +139,7 @@ function AddPatient() {
               />
             </td>
           </tr>
+          
           <tr>
             <td className="form-table-cell">Allocated Room Number</td>
             <td className="form-table-cell">
@@ -132,16 +150,14 @@ function AddPatient() {
                   setData({ ...data, roomNumber: e.target.value })
                 }
               >
-                <option>101</option>
-                <option>102</option>
-                <option>103</option>
-                <option>104</option>
-                <option>105</option>
-                <option>201</option>
-                <option>202</option>
+                {availableRooms.length > 0 ? 
+                  (availableRooms.map((room) => (<option key={room} value={room}>{room}</option>))) : 
+                  (<option disabled>No rooms available</option>)
+                }
               </select>
             </td>
           </tr>
+          
           <tr>
             <td className="form-table-cell">Deposit</td>
             <td className="form-table-cell">

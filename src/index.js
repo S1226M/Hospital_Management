@@ -20,6 +20,7 @@ import ViewStaff from './AdminManagement/ViewStaff';
 import DepartmentManagement from './AdminManagement/DepartmentManagement';
 import ViewStaffByNumber from './AdminManagement/ViewStaffByNumber'
 import EditStaff from './AdminManagement/EditStaff'
+import AppointmentData from './DoctorManagement/AppointmentData'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <Route path="talkWithDoctor" element={<TalkWithDoctor />} />
           <Route path="doctorInfo" element={<DoctorInfo />} />
           <Route path="doctorSchedule" element={<DoctorSchedule />} />
+          <Route path='appointmentData' element={<AppointmentData />} />
         </Route>
         <Route path="admin" element={<AdminLayout />} >
           <Route path="adminDashboard" element={<AdminDashboard />} />
