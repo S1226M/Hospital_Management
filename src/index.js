@@ -21,6 +21,7 @@ import DepartmentManagement from './AdminManagement/DepartmentManagement';
 import ViewStaffByNumber from './AdminManagement/ViewStaffByNumber'
 import EditStaff from './AdminManagement/EditStaff'
 import AppointmentData from './DoctorManagement/AppointmentData'
+import LayOutPatientSide from './PatientSideView/LayOutPatientSide';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,6 +49,9 @@ function App() {
           <Route path="/admin/viewStaffByNumber/:number" element={<ViewStaffByNumber />} />
           <Route path='/admin/editStaff/:number' element={<EditStaff/>}/>  
           <Route path="departmentManagement" element={<DepartmentManagement />} />
+        </Route>
+        <Route path='patientSideLayout' element={<LayOutPatientSide/>}>
+
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

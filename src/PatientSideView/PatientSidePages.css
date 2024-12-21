@@ -1,0 +1,115 @@
+/* Lay Out Of Patient Side Styling */
+/* Layout Container */
+.layout-patient-side-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+}
+
+/* Header Styling */
+.patient-header {
+    background-color: #4caf50;
+    height: 15%;
+    color: white;
+    text-align: center;
+    padding-top: 05px;
+    font-size: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.patient-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.patient-nav ul li {
+    margin: 0 20px;
+}
+
+.patient-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s ease-in-out;
+}
+
+.patient-nav ul li a:hover {
+    color: #ffeb3b; /* Highlight color on hover */
+    transform: scale(1.1);
+}
+
+/* Content Section */
+.patient-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    border-radius: 10px;
+}
+
+/* Patient Profile Heading */
+.patient-content h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Example content paragraph */
+.patient-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Footer Styling */
+.patient-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .patient-header {
+        font-size: 1.5rem;
+    }
+
+    .patient-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .patient-nav ul li {
+        margin: 10px 0;
+    }
+
+    .patient-footer {
+        font-size: 0.9rem;
+    }
+
+    .patient-content {
+        padding: 15px;
+    }
+}
+
+/* Extra Enhancements */
+.patient-header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.patient-footer p {
+    font-size: 0.9rem;
+    color: #bbb;
+}
