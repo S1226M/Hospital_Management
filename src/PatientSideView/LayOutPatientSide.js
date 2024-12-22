@@ -1,8 +1,10 @@
+
 import React from "react";
 import { Link } from "react-router-dom"; // Use react-router for navigation
 import './PatientSidePages.css';
 
 function LayOutPatientSide() {
+
     return (
         <div className="layout-patient-side-container">
             {/* Header with Navigation Links */}
