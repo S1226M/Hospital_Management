@@ -54,7 +54,7 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
             </li>
             <li>
               <Link className="nav-link nav-link-custom" to="/layout/appointmentData">
-                Patient Info
+                Appointment Info
               </Link>
             </li>
           </ul>

@@ -21,7 +21,13 @@ function AdminLayout(){
                           <Link to="/admin/viewStaff">View Staff</Link>
                         </li>
                         <li>
-                          <Link to="/admin/departmentManagement">Manage Departments</Link>
+                          <Link to="/admin/manageDepartment">Manage Departments</Link>
+                        </li>
+                        <li>
+                          <Link to="/admin/allPatientInformation">All Patient Information</Link>
+                        </li>
+                        <li>
+                          <Link to="/admin/addPatientFromAdmin">Add Patient</Link>
                         </li>
                     </ul>
                 </nav>
@@ -30,6 +36,7 @@ function AdminLayout(){
           {/* Main Content Area */}
           <main className="admin-content">
             <h1>Welcome, Admin</h1>
+            
             <Outlet /> {/* Displays child components like Dashboard, Add Staff, etc. */}
           </main>
         </div>

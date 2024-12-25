@@ -2,25 +2,34 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
-import Home from './Home/Home';
-import AddPatient from './PatientManagement/AddPatient';
-import PatientInfo from './PatientInfo/PatientInfo';
-import Layout from './Layout/Layout';
-import PatientInfoById from './PatientInfo/PatientInfoById';
-import PatientInfoByNumberAndEdit from './PatientInfo/PatientInfoByNumberAndEdit';
+//Staff Side
+import Home from './StaffSide/Home';
+import AddPatient from './StaffSide/AddPatient';
+import PatientInfo from './StaffSide/PatientInfo/PatientInfo'
+import Layout from './StaffSide/Layout';
+import PatientInfoById from './StaffSide/PatientInfo/PatientInfoById';
+import PatientInfoByNumberAndEdit from './StaffSide/PatientInfo/PatientInfoByNumberAndEdit';
+import TalkWithDoctor from './StaffSide/DoctorManagement/TalkWithDoctor';
+import DoctorInfo from './StaffSide/DoctorManagement/DoctorInfo';
+import DoctorSchedule from './StaffSide/DoctorManagement/DoctorSchedule';
+import AppointmentData from './StaffSide/DoctorManagement/AppointmentData'
+
+//Log In and Log Out
 import SignIn from './Login&Logout/SignIn';
 import SignUp from './Login&Logout/SignUp';
-import TalkWithDoctor from './DoctorManagement/TalkWithDoctor';
-import DoctorInfo from './DoctorManagement/DoctorInfo';
-import DoctorSchedule from './DoctorManagement/DoctorSchedule';
-import AdminLayout from './AdminManagement/AdminLayout';
-import AdminDashboard from './AdminManagement/AdminDashboard';
-import AddStaff from './AdminManagement/AddStaff';
-import ViewStaff from './AdminManagement/ViewStaff';
-import DepartmentManagement from './AdminManagement/DepartmentManagement';
-import ViewStaffByNumber from './AdminManagement/ViewStaffByNumber'
-import EditStaff from './AdminManagement/EditStaff'
-import AppointmentData from './DoctorManagement/AppointmentData'
+
+//Admin Side
+import AdminLayout from './AdminSide/AdminLayout';
+import AdminDashboard from './AdminSide/AdminDashboard';
+import AddStaff from './AdminSide/AddStaff';
+import ViewStaff from './AdminSide/ViewStaff';
+import ViewStaffByNumber from './AdminSide/ViewStaffByNumber'
+import EditStaff from './AdminSide/EditStaff'
+import AllPatientInformation from './AdminSide/AllPatientInformation';
+import AddPatientFromAdmin from './AdminSide/AddPatientFromAdmin';
+import ManageDepartment from './AdminSide/ManageDepartment';
+
+//Patient Side
 import LayOutPatientSide from './PatientSideView/LayOutPatientSide';
 
 function App() {
@@ -31,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/"element={<SignIn setIsLoggedIn={setIsLoggedIn} />}/>
         <Route path="/signup" element={<SignUp />} />
+        
         <Route path="/layout" element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}>
           <Route path="home" element={<Home />} />
           <Route path="addPatient" element={<AddPatient />} />
@@ -42,18 +52,22 @@ function App() {
           <Route path="doctorSchedule" element={<DoctorSchedule />} />
           <Route path='appointmentData' element={<AppointmentData />} />
         </Route>
+        
         <Route path="admin" element={<AdminLayout />} >
           <Route path="adminDashboard" element={<AdminDashboard />} />
           <Route path="addStaff" element={<AddStaff />}/>
           <Route path="viewStaff" element={<ViewStaff />} />
           <Route path="/admin/viewStaffByNumber/:number" element={<ViewStaffByNumber />} />
+          <Route path='manageDepartment' element={<ManageDepartment />} />
           <Route path='/admin/editStaff/:number' element={<EditStaff/>}/>  
-          <Route path="departmentManagement" element={<DepartmentManagement />} />
+          <Route path="allPatientInformation" element={<AllPatientInformation />} />
+          <Route path="addPatientFromAdmin" element={<AddPatientFromAdmin />} />
         </Route>
+        
         <Route path='patientSideLayout' element={<LayOutPatientSide/>}>
-
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
+
       </Routes>
     </BrowserRouter>
   );

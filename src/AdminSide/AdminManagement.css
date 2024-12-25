@@ -1,0 +1,547 @@
+/* Admin Layout Container */
+.admin-layout {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  /* Sidebar Styles */
+  .admin-sidebar {
+    width: 250px;
+    background-color: #2c3e50; /* Dark Blue-Grey */
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .admin-sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ecf0f1; /* Light Grey */
+    text-align: center;
+  }
+  
+  .admin-sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .admin-sidebar nav ul li {
+    margin: 15px 0;
+  }
+  
+  .admin-sidebar nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .admin-sidebar nav ul li a:hover {
+    background-color: #1abc9c; /* Teal */
+    color: white;
+  }
+  
+  /* Main Content Area */
+  .admin-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-content h1 {
+    font-size: 28px;
+    color: #34495e; /* Dark Blue */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-layout {
+      flex-direction: column;
+    }
+  
+    .admin-sidebar {
+      width: 100%;
+      box-shadow: none;
+      padding: 10px;
+    }
+  
+    .admin-sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .admin-content {
+      padding: 10px;
+    }
+  }
+
+/* AddStaff Form Styling */
+.add-staff-form {
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-staff-form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.add-staff-form-cell {
+  padding: 12px 10px;
+  font-size: 16px;
+  color: #333;
+  vertical-align: middle;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.gender-options label {
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.gender-options input {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .add-staff-form {
+    width: 90%;
+  }
+
+  .add-staff-form-title {
+    font-size: 20px;
+  }
+
+  .add-staff-form-cell {
+    font-size: 14px;
+  }
+
+  .input-field {
+    font-size: 13px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+  }
+}
+
+/* View Staff */
+/* Container styling */
+.staffInfoContainer {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 90%;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.staffInfoHeading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.Fild {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Button styling */
+.btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/*Styling For Department Table*/
+.departmentInformationContainer {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.manageDepartmentHeading {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+  float: left;
+}
+
+.addDepartmentButton {
+  float: right;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Add some padding for better spacing */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Make the text a bit larger */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.addDepartmentButton:hover {
+  background-color: #45a049; /* Slightly darker green when hovered */
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .departmentInformationContainer {
+    width: 95%;
+  }
+  
+  .table th,
+  .table td {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+/*Popupbox add department*/
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.add-department-container {
+  margin-left: 7.5%;
+  width: 400px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.add-department-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-btn {
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.form-group input::placeholder {
+  color: #888;
+}
+
+/* Add to AdminManagement.css */
+
+/* Blurred effect for the department management container */
+.departmentInformationContainer.blurred {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+/* Add Department form container centered in the middle */
+.add-department-container {
+  position: fixed; /* Position it fixed to the screen */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the exact center */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* Show the Add Department form with smooth transition */
+.add-department-container.visible {
+  opacity: 1;
+}
+
+/* Form inputs and button styling */
+.add-department-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-department-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-department-form input {
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.add-department-form button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-department-form button:hover {
+  background-color: #45a049;
+}
+
+/* Close button for the form */
+/* Styling for the Close button */
+.close-form-btn {
+  margin-top: 10px;
+  padding: 5px 15px;
+  background-color: #ca5a5a; /* Red background color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex; /* Ensure it's aligned properly */
+  text-align: center;
+}

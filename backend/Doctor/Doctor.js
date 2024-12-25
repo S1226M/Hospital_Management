@@ -8,7 +8,7 @@ const schema = new mongoose.Schema(
         phone : String,
         department : String,
         experience : Number,
-        availability : [String],
+        availability : [String]
     }
 )
 
