@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './AdminManagement.css';
+import { Link } from 'react-router-dom';
 
 function ManageDepartment() {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -76,8 +77,8 @@ function ManageDepartment() {
       <td>{department.departmentName}</td>
       <td>{department.departmentId}</td>
       <td>
-        <button className="btn btn-info">View Staff</button>
-      </td>
+        <Link className="btn btn-info" to='/admin/ViewStaffOfThatDepartment'>View Staff</Link>
+       </td>
       <td>
         <button className="btn btn-danger">Delete</button>
       </td>

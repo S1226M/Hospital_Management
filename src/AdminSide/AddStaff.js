@@ -6,7 +6,7 @@ function AddStaff(){
     id : "Adhar Card",
     fullName : "",
     number : "",
-    gender : "male",
+    gender : "",
     street : "",
     city : "",
     state : "",
