@@ -37,6 +37,20 @@ mongoose.connect(connectionString)
       }
     });
 
+    app.get('/staff/:department', async (req, res) => {
+      try {
+        // const {department} = req.params;
+        const data = await Staff.find(req.params.department);
+        if (data.length > 0) {
+          res.send(data);
+        } else {
+          res.status(404).send({ message: 'Staff not found' });
+        }
+      } catch (error) {
+        res.status(500).send({ message: 'Error fetching staff details', error });
+      });
+    }
+
     // Add a new staff
     app.post('/staff', async (req, res) => {
       try {

@@ -77,13 +77,20 @@ function ManageDepartment() {
       <td>{department.departmentName}</td>
       <td>{department.departmentId}</td>
       <td>
-        <Link className="btn btn-info" to='/admin/ViewStaffOfThatDepartment'>View Staff</Link>
-       </td>
+        <Link
+          key={department.departmentId} // Use a unique key for each item
+          className="btn btn-info"
+          to={`/admin/viewStaffOfThatDepartment/${department.departmentName}`}
+        >
+          View Staff
+        </Link>
+      </td>
       <td>
         <button className="btn btn-danger">Delete</button>
       </td>
     </tr>
   ));
+  
 
   return (
     <>

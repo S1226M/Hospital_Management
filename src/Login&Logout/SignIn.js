@@ -27,6 +27,36 @@ function SignIn({ setIsLoggedIn }) {
       <div className="form-wrapper">
         <h2 className="form-title">Sign-In</h2>
         <p>Welcome! 😊</p>
+        <tr>
+            <td className="form-table-cell">
+              <div className="gender-options">
+                <label>
+                  <input
+                    type="radio"
+                    name="User"
+                    value="admin"
+                  />
+                  Admin
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="User"
+                    value="staff"
+                  />
+                  Staff
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="User"
+                    value="patient"
+                  />
+                  Patient
+                </label>
+              </div>
+            </td>
+          </tr>
         <form onSubmit={handleSubmit} className="auth-form">
           <input type="email" placeholder="Email Address" className="form-input" onChange={(e) => setData({ ...data, email: e.target.value })}/>
           <input type="password" placeholder="Password" className="form-input" onChange={(e) => setData({ ...data, password: e.target.value })}/>

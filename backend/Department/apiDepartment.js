@@ -27,7 +27,7 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
             } catch (error) {
                 res.status(500).send({ message: "Error fetching departments", error });
             }
-        });
+        })
 
         app.post('/department', async (req, res) => {
             try {
