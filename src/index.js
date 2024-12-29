@@ -42,6 +42,7 @@ function App() {
         <Route path="/"element={<SignIn setIsLoggedIn={setIsLoggedIn} />}/>
         <Route path="/signup" element={<SignUp />} />
         
+        {/* staff */}
         <Route path="/layout" element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}>
           <Route path="home" element={<Home />} />
           <Route path="addPatient" element={<AddPatient />} />
@@ -53,7 +54,8 @@ function App() {
           <Route path="doctorSchedule" element={<DoctorSchedule />} />
           <Route path='appointmentData' element={<AppointmentData />} />
         </Route>
-        
+
+        {/* admin         */}
         <Route path="admin" element={<AdminLayout />} >
           <Route path="adminDashboard" element={<AdminDashboard />} />
           <Route path="addStaff" element={<AddStaff />}/>
@@ -66,6 +68,7 @@ function App() {
           <Route path='viewStaffOfThatDepartment' element={<ViewStaffOfThatDepartment />} />
         </Route>
         
+        {/* patient */}
         <Route path='patientSideLayout' element={<LayOutPatientSide/>}>
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
