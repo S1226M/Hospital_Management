@@ -28,7 +28,8 @@ import EditStaff from './AdminSide/EditStaff'
 import AllPatientInformation from './AdminSide/AllPatientInformation';
 import AddPatientFromAdmin from './AdminSide/AddPatientFromAdmin';
 import ManageDepartment from './AdminSide/ManageDepartment';
-import ViewStaffOfThatDepartment from './AdminSide/ViewStaffOfThatDepartment'
+import ViewStaffOfThatDepartment from './AdminSide/ViewStaffOfThatDepartment';
+import viewDoctor from './AdminSide/ViewDoctor';
 
 //Patient Side
 import LayOutPatientSide from './PatientSideView/LayOutPatientSide';
@@ -66,6 +67,7 @@ function App() {
           <Route path="allPatientInformation" element={<AllPatientInformation />} />
           <Route path="addPatientFromAdmin" element={<AddPatientFromAdmin />} />
           <Route path='viewStaffOfThatDepartment' element={<ViewStaffOfThatDepartment />} />
+          <Route path='viewDoctor' element={<viewDoctor />} />
         </Route>
         
         {/* patient */}

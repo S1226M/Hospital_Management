@@ -15,6 +15,12 @@ function AdminLayout(){
                             <Link to="/admin/adminDashboard">Dashboard</Link>
                         </li>
                         <li>
+                          <Link to="/admin/addDoctor">Add Doctor</Link>
+                        </li>
+                        <li>
+                          <Link to="/admin/viewDoctor">View Doctor</Link>
+                        </li>
+                        <li>
                           <Link to="/admin/addStaff">Add Staff</Link>
                         </li>
                         <li>
