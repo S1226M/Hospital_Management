@@ -16,8 +16,7 @@ import AppointmentData from './StaffSide/DoctorManagement/AppointmentData'
 
 //Log In and Log Out
 import SignIn from './Login&Logout/SignIn';
-import SignUp from './Login&Logout/SignUp';
-
+import Register from './Login&Logout/Register';
 //Admin Side
 import AdminLayout from './AdminSide/AdminLayout';
 import AdminDashboard from './AdminSide/AdminDashboard';
@@ -41,7 +40,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/"element={<SignIn setIsLoggedIn={setIsLoggedIn} />}/>
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/register" element={<Register/>} />
         
         {/* staff */}
         <Route path="/layout" element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}>

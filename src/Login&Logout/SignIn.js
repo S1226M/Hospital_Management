@@ -68,8 +68,8 @@ function SignIn({ setIsLoggedIn }) {
         <div className="form-footer">
           <p>
             Don’t have an account?{' '}
-            <span onClick={() => navigate('/signup')} className="link-text">
-              Sign Up
+            <span onClick={() => navigate('/register')} className="link-text">
+              Register
             </span>
           </p>
         </div>

@@ -3,7 +3,7 @@ import './SignIn&SignUp.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function SignUp() {
+function Register() {
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -26,8 +26,38 @@ function SignUp() {
   return (
     <div className="auth-container">
       <div className="form-wrapper">
-        <h2 className="form-title">Sign-Up</h2>
+        <h2 className="form-title">Register</h2>
         <p>Welcome! 😊</p>
+        <tr>
+          <td className="form-table-cell">
+            <div className="gender-options">
+              <label>
+                <input
+                  type="radio"
+                  name="User"
+                  value="admin"
+                />
+                Admin
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="User"
+                  value="staff"
+                />
+                Staff
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="User"
+                  value="patient"
+                />
+                Patient
+              </label>
+            </div>
+          </td>
+        </tr>
         <form onSubmit={handleSubmit} className="auth-form">
           <input
             type="text"
@@ -64,4 +94,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Register;

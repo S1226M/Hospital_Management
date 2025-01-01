@@ -37,19 +37,20 @@ mongoose.connect(connectionString)
       }
     });
 
-    app.get('/staff/:department', async (req, res) => {
+    // Get staff by department
+    app.get('/staff/department/:department', async (req, res) => {
       try {
-        // const {department} = req.params;
-        const data = await Staff.find(req.params.department);
+        const { department } = req.params;
+        const data = await Staff.find({ department });
         if (data.length > 0) {
           res.send(data);
         } else {
-          res.status(404).send({ message: 'Staff not found' });
+          res.status(404).send({ message: 'Staff not found in the department' });
         }
       } catch (error) {
         res.status(500).send({ message: 'Error fetching staff details', error });
-      });
-    }
+      }
+    });
 
     // Add a new staff
     app.post('/staff', async (req, res) => {
@@ -57,8 +58,7 @@ mongoose.connect(connectionString)
         const staff = new Staff({ ...req.body });
         const savedStaff = await staff.save();
         res.status(201).send(savedStaff);
-      }
-      catch (error) {
+      } catch (error) {
         res.status(500).send({ message: 'Error adding staff', error });
       }
     });
@@ -77,44 +77,31 @@ mongoose.connect(connectionString)
       }
     });
 
-    //update staff by number
-    // app.put('/staff/:number', async (req,res) => {
-    //   const updateStaff = await Staff.findOneAndUpdate(
-    //     {number: req.params.number},
-    //     {...req.body},
-    //   );
-    //   res.send(updateStaff);
-    // });
-
+    // Update staff by number
     app.put('/staff/:number', async (req, res) => {
       try {
-        // Find and update the staff member by number
         const updateStaff = await Staff.findOneAndUpdate(
-          { number: req.params.number }, // Find by staff number
-          { ...req.body }, // Update with the provided data
-          { new: true } // Return the updated document
+          { number: req.params.number },
+          { ...req.body },
+          { new: true }
         );
-    
+
         if (!updateStaff) {
-          // If no staff is found, return a 404
-          return res.status(404).send({ message: "Staff not found" });
+          return res.status(404).send({ message: 'Staff not found' });
         }
-    
-        // Return the updated staff details
+
         res.status(200).send(updateStaff);
       } catch (err) {
-        // Handle any other errors
-        console.error(err);
-        res.status(500).send({ message: "Server error, please try again later" });
+        res.status(500).send({ message: 'Server error, please try again later' });
       }
     });
-    
+
     app.listen(5000, () => {
-      console.log("Server is running on port 5000");
+      console.log('Server is running on port 5000');
     });
 
-    console.log("Your server is connected to the database");
+    console.log('Your server is connected to the database');
   })
   .catch((error) => {
-    console.error("Error connecting to the database", error);
+    console.error('Error connecting to the database', error);
   });
