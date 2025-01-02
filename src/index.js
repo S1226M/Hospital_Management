@@ -17,6 +17,8 @@ import AppointmentData from './StaffSide/DoctorManagement/AppointmentData'
 //Log In and Log Out
 import SignIn from './Login&Logout/SignIn';
 import Register from './Login&Logout/Register';
+import ForgotPassword from './Login&Logout/ForgotPassword'
+
 //Admin Side
 import AdminLayout from './AdminSide/AdminLayout';
 import AdminDashboard from './AdminSide/AdminDashboard';
@@ -41,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/"element={<SignIn setIsLoggedIn={setIsLoggedIn} />}/>
         <Route path="/register" element={<Register/>} />
+        <Route path="/forgotpassword" element={<ForgotPassword/>} />
         
         {/* staff */}
         <Route path="/layout" element={<Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}>

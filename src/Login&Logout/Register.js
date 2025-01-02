@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './SignIn&SignUp.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 function Register() {
   const [data, setData] = useState({
+    user: '',
     name: '',
     email: '',
     password: '',
@@ -13,14 +13,22 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, email, password } = data; // Destructure state
-    axios
-      .post('/*url from server side*/', { name, email, password })
-      .then((res) => {
-        console.log(res);
-        navigate('/layout'); // Navigate on success
+    const apiUrl = "http://localhost:8000/register";
+
+    fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        navigate('/');
       })
-      .catch((err) => console.log(err));
+      .catch((error) => {
+        console.error("Error during registration:", error);
+      });
   };
 
   return (
@@ -28,57 +36,59 @@ function Register() {
       <div className="form-wrapper">
         <h2 className="form-title">Register</h2>
         <p>Welcome! 😊</p>
-        <tr>
-          <td className="form-table-cell">
-            <div className="gender-options">
-              <label>
-                <input
-                  type="radio"
-                  name="User"
-                  value="admin"
-                />
-                Admin
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="User"
-                  value="staff"
-                />
-                Staff
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="User"
-                  value="patient"
-                />
-                Patient
-              </label>
-            </div>
-          </td>
-        </tr>
-        <form onSubmit={handleSubmit} className="auth-form">
+        <div className="user-options">
+          <label>
+            <input
+              type="radio"
+              name="User"
+              value="admin"
+              onChange={(e) => setData({ ...data, user: e.target.value })}
+            />
+            Admin
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="User"
+              value="staff"
+              onChange={(e) => setData({ ...data, user: e.target.value })}
+            />
+            Staff
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="User"
+              value="patient"
+              onChange={(e) => setData({ ...data, user: e.target.value })}
+            />
+            Patient
+          </label>
+        </div>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Full Name"
             className="form-input"
+            required
             onChange={(e) => setData({ ...data, name: e.target.value })}
           />
           <input
             type="email"
             placeholder="Email Address"
             className="form-input"
+            required
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
           <input
             type="password"
             placeholder="Password"
             className="form-input"
+            required
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
           <button type="submit" className="btn primary-btn">
-            Sign Up
+            Register
           </button>
         </form>
         <div className="form-footer">
