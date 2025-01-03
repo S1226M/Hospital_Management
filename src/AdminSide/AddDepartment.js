@@ -12,7 +12,6 @@ const AddDepartment = () => {
 
     // Reset form
     setDepartmentName('');
-    setDepartmentId('');
   };
 
   return (
