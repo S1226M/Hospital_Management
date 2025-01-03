@@ -84,3 +84,80 @@
 .link-text:hover {
   text-decoration: underline;
 }
+
+/* ForgotPassword */
+.outer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+}
+
+.forgotPassword-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.icon {
+  font-size: 80px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+.msg-forgotPassword {
+  font-size: 16px;
+  color: #3e3e3e;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.email input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding-left: 12px;
+}
+
+.email svg {
+  font-size: 22px;
+  color: #777;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
