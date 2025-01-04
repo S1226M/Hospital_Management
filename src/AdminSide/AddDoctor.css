@@ -1,0 +1,94 @@
+/* Add Doctor Form */
+.addDoctor {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .addDoctorHeading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Form Group (each label and input in one row) */
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;  /* Reduced space between form fields */
+  }
+  
+  .form-group label {
+    font-size: 14px;  /* Slightly smaller label font */
+    font-weight: bold;
+    color: #333;
+    width: 30%;  /* Label column width */
+    text-align: right;  /* Align label to the right */
+  }
+  
+  .form-group .form-control {
+    width: 65%;  /* Input field column width */
+    padding: 6px 10px;  /* Reduced padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;  /* Smaller font size */
+    box-sizing: border-box;
+  }
+  
+  .form-group .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button Styling */
+  .btn {
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 375px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;  /* Reduced button padding */
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;  /* Smaller button text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 768px) {
+    .addDoctor {
+      width: 90%;
+    }
+  
+    .addDoctorHeading {
+      font-size: 20px;
+    }
+  
+    .form-group label {
+      font-size: 12px;
+      width: 40%;  /* Adjusted label width for smaller screens */
+    }
+  
+    .form-group .form-control {
+      font-size: 11px;  /* Smaller font size for smaller screens */
+      width: 55%;  /* Adjusted input width */
+    }
+  
+    .btn {
+      font-size: 12px;
+    }
+  }
+  

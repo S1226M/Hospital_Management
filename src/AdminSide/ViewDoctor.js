@@ -21,8 +21,16 @@ function ViewDoctor() {
             <td>{doctor.department}</td>
             <td>{doctor.email}</td>
             <td>{doctor.phone}</td>
-            <td>{doctor.experience}</td>
+            <td>{doctor.experience}</td>            
             <td>{doctor.availability}</td>
+            <td>{doctor.address}</td>
+            <td>{doctor.gender}</td>
+            <td>{doctor.qualification_degree}</td>
+            <td>{doctor.current_workplace}</td>
+            <td>{doctor.emergency_contact_name}</td>
+            <td>{doctor.emergency_contact}</td>
+            <td>{doctor.preferred_mode_of_communication}</td>
+            <td>{doctor.dob}</td>
         </tr>
     ));
 
@@ -32,14 +40,22 @@ function ViewDoctor() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Specialization</th>
-                        <th>Department</th>
-                        <th>Email</th>
-                        <th>Phone No.</th>
-                        <th>Experience</th>
-                        <th>Availability</th>
+                    <th>No.</th>
+                    <th>Doctor Name</th>
+                    <th>Specialization</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Experience</th>
+                    <th>Availability</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Qualification/Degree</th>
+                    <th>Current Workplace/Hospital Name</th>
+                    <th>Emergency Contact Name</th>
+                    <th>Emergency Contact Number</th>
+                    <th>Preferred Mode of Communication</th>
+                    <th>Date of Birth</th>
                     </tr>
                 </thead>
                 <tbody>{formatDoctor}</tbody>
