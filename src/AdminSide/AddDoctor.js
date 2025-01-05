@@ -18,12 +18,12 @@ function AddDoctor() {
         emergency_contact_name: "",
         emergency_contact: "",
         preferred_mode_of_communication: "",
-        dob: ""
+        dob: "",
     });
 
-    const apiUrl = 'http://localhost:6000/doctor'
+    const apiUrl = 'http://localhost:6060/doctor'; // Backend API URL
     const navigate = useNavigate();
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -36,7 +36,7 @@ function AddDoctor() {
             })
             .then((res) => res.json())
             .then((res) => {
-                navigate("/viewDoctor")
+                navigate("/admin/viewDoctor")
             })
         } catch (error) {
             console.error("Error:", error);
@@ -46,7 +46,7 @@ function AddDoctor() {
     return (
         <div className="addDoctor">
             <h2 className="addDoctorHeading">Add Doctor</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Doctor Name</label>
                     <input
@@ -55,9 +55,8 @@ function AddDoctor() {
                         value={data.name}
                         id="name"
                         name="name"
-                        onChange={(e) => {
-                            setData({...data, name : e.target.value})}
-                        }
+                        onChange={(e) => setData({ ...data, name: e.target.value })}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -68,9 +67,8 @@ function AddDoctor() {
                         value={data.specialization}
                         id="specialization"
                         name="specialization"
-                        onChange={(e) => {
-                            setData({...data, specialization : e.target.value})
-                        }}
+                        onChange={(e) => setData({ ...data, specialization: e.target.value })}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -239,6 +237,7 @@ function AddDoctor() {
                         }}
                     />
                 </div>
+
                 <div className="form-group">
                     <label htmlFor="dob">Date of Birth</label>
                     <input
@@ -247,12 +246,10 @@ function AddDoctor() {
                         value={data.dob}
                         id="dob"
                         name="dob"
-                        onChange={(e) => {
-                            setData({ ...data, dob: e.target.value });
-                        }}
+                        onChange={(e) => setData({ ...data, dob: e.target.value })}
                     />
                 </div>
-                <button onClick={handleSubmit} type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     );
