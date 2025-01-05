@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from "react";
-import './AddDoctor.css'
+import React, { useState } from "react";
+import './AddDoctor.css';
 import { useNavigate } from "react-router-dom";
 
-function AddDoctor(){
-    const [data ,setData] = useState({
-        name : "",
-        specialization : "",
-        department : "",
-        email : "",
-        phone : "",
-        experience : "",
-        availability : "",
-        address : "",
-        gender : "",
-        qualification_degree : "",
-        current_workplace : "",
-        emergency_contact_name : "",
-        emergency_contact : "",
-        preferred_mode_of_communication : "",
-        dob : ""
-    })
+function AddDoctor() {
+    const [data, setData] = useState({
+        name: "",
+        specialization: "",
+        department: "",
+        email: "",
+        phone: "",
+        experience: "",
+        availability: "",
+        address: "",
+        gender: "",
+        qualification_degree: "",
+        current_workplace: "",
+        emergency_contact_name: "",
+        emergency_contact: "",
+        preferred_mode_of_communication: "",
+        dob: ""
+    });
 
-    const navigate = useNavigate()
-    const handleSubmit = (e) => {
+    const apiUrl = 'http://localhost:6000/doctor'
+    const navigate = useNavigate();
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const apiUrl = "http://localhost:6000/doctor"
-
-        useEffect(() => {
+        try {
             fetch(apiUrl, {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -37,154 +36,226 @@ function AddDoctor(){
             })
             .then((res) => res.json())
             .then((res) => {
-                navigate('/')
+                navigate("/viewDoctor")
             })
-        })
-    }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
 
-    return(
+    return (
         <div className="addDoctor">
             <h2 className="addDoctorHeading">Add Doctor</h2>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div className="form-group">
                     <label htmlFor="name">Doctor Name</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         className="form-control"
-                        value={data.name} 
-                        id="name" name="name"/>
+                        value={data.name}
+                        id="name"
+                        name="name"
+                        onChange={(e) => {
+                            setData({...data, name : e.target.value})}
+                        }
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="specialization">Specialization</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         className="form-control"
-                        value={data.specialization} 
-                        id="specialization" name="specialization"/>
+                        value={data.specialization}
+                        id="specialization"
+                        name="specialization"
+                        onChange={(e) => {
+                            setData({...data, specialization : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="department">Department</label>
-                    <input 
-                        type="text" 
-                        className="form-control" 
+                    <input
+                        type="text"
+                        className="form-control"
                         value={data.department}
-                        id="department" name="department"/>
+                        id="department"
+                        name="department"
+                        onChange={(e) => {
+                            setData({...data , department : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input 
-                        type="email" 
+                    <input
+                        type="email"
                         className="form-control"
-                        value={data.email} 
-                        id="email" name="email"/>
+                        value={data.email}
+                        id="email"
+                        name="email"
+                        onChange={(e) => {
+                            setData({...data, email : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="phone">Phone Number</label>
-                    <input 
-                        type="number" 
+                    <input
+                        type="number"
                         className="form-control"
-                        value={data.phone} 
-                        id="phone" name="phone"/>
+                        value={data.phone}
+                        id="phone"
+                        name="phone"
+                        onChange={(e) => {
+                            setData({...data, phone : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="experience">Experience</label>
-                    <input 
-                        type="number" 
+                    <input
+                        type="number"
                         className="form-control"
-                        value={data.experience} 
-                        id="experience" name="experience"/>
+                        value={data.experience}
+                        id="experience"
+                        name="experience"
+                        onChange={(e) => {
+                            setData({...data , experience : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="availability">Availability</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         className="form-control"
-                        value={data.availability} 
-                        id="availability" name="availability"/>
+                        value={data.availability}
+                        id="availability"
+                        name="availability"
+                        onChange={(e) => {
+                            setData({...data , availability : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="address">Address</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         className="form-control"
-                        value={data.address} 
-                        id="address" name="address"/>
+                        value={data.address}
+                        id="address"
+                        name="address"
+                        onChange={(e) => {
+                            setData({...data , address : e.target.value})
+                        }}
+                    />
                 </div>
-
-                <div className="form-group">
-                    <label htmlFor="gender">Gender</label>
-                    <label>
-                        <input
-                            type="radio"
-                            name="gender"
-                            value={data.gender}
-                        >
-                            Male
-                        </input>
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            name="gender"
-                            value={data.gender}
-                        >
-                            Female
-                        </input>
-                    </label>
+                <div className="form-group" style={{ display: "flex", alignItems: "center" }}>
+                  <label style={{ marginRight: "10px", fontWeight: "bold" }}>Gender:</label>
+                  <div className="redioBtn">
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        checked={data.gender === "male"}
+                        onChange={(e) => setData({ ...data, gender: e.target.value })}
+                        style={{ marginRight: "5px" }}
+                      />
+                      Male
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="female"
+                        checked={data.gender === "female"}
+                        onChange={(e) => setData({ ...data, gender: e.target.value })}
+                        style={{ marginRight: "5px" }}
+                      />
+                      Female
+                  </div>
                 </div>
-                
                 <div className="form-group">
                     <label htmlFor="qualification">Qualification/Degree</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         className="form-control"
-                        value={data.qualification_degree} 
-                        id="qualification" name="qualification"/>
+                        value={data.qualification_degree}
+                        id="qualification"
+                        name="qualification_degree"
+                        onChange={(e) => {
+                            setData({...data , qualification_degree : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="workplace">Current Workplace/Hospital Name</label>
-                    <input 
-                        type="text" 
-                        className="form-control" 
+                    <label htmlFor="workplace">Current Workplace</label>
+                    <input
+                        type="text"
+                        className="form-control"
                         value={data.current_workplace}
-                        id="workplace" name="workplace"/>
+                        id="workplace"
+                        name="current_workplace"
+                        onChange={(e) => {
+                            setData({...data , current_workplace : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="emergencycontact">Emergency Contact Name</label>
-                    <input 
-                        type="text" 
-                        className="form-control" 
+                    <label htmlFor="emergency_contact_name">Emergency Contact Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
                         value={data.emergency_contact_name}
-                        id="emergencycontact" name="emergencycontact"/>
+                        id="emergency_contact_name"
+                        name="emergency_contact_name"
+                        onChange={(e) => {
+                            setData({...data , emergency_contact_name : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="emergencycontactnumber">Emergency Contact Number</label>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value={data.emergency_contact_number}
-                        id="emergencycontactnumber" name="emergencycontactnumber"/>
+                    <label htmlFor="emergency_contact">Emergency Contact Number</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={data.emergency_contact}
+                        id="emergency_contact"
+                        name="emergency_contact"
+                        onChange={(e) => {
+                            setData({...data , emergency_contact : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="communication">Preferred Mode of Communication</label>
-                    <input 
-                        type="text" 
-                        className="form-control" 
+                    <label htmlFor="preferred_mode_of_communication">Preferred Mode of Communication</label>
+                    <input
+                        type="text"
+                        className="form-control"
                         value={data.preferred_mode_of_communication}
-                        id="communication" name="communication"/>
+                        id="preferred_mode_of_communication"
+                        name="preferred_mode_of_communication"
+                        onChange={(e) => {
+                            setData({...data , preferred_mode_of_communication : e.target.value})
+                        }}
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="dob">Date of Birth</label>
-                    <input 
-                        type="date" 
-                        className="form-control" 
+                    <input
+                        type="date"
+                        className="form-control"
                         value={data.dob}
-                        id="dob" name="dob"/>
+                        id="dob"
+                        name="dob"
+                        onChange={(e) => {
+                            setData({ ...data, dob: e.target.value });
+                        }}
+                    />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button onClick={handleSubmit} type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
-    )
+    );
 }
 
 export default AddDoctor;

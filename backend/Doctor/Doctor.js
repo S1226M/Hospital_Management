@@ -16,7 +16,7 @@ const schema = new mongoose.Schema(
         emergency_contact_name : String,
         emergency_contact : Number,
         preferred_mode_of_communication : String,
-        dob : String
+        dob : Date
     }
 )
 
