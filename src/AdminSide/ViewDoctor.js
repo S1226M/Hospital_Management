@@ -41,9 +41,6 @@ function ViewDoctor() {
     return (
         <div className="doctorInfoContainer">
             <h2 className="doctorInfoHeading">Doctor Information</h2>
-            {data.length === 0 ? (
-                <p>No doctors found.</p>
-            ) : (
                 <table className="table">
                     <thead>
                         <tr>
@@ -67,7 +64,6 @@ function ViewDoctor() {
                     </thead>
                     <tbody>{formatDoctor}</tbody>
                 </table>
-            )}
         </div>
     );
 }

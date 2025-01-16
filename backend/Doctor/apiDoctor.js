@@ -61,7 +61,7 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
 
         // Start the server
         app.listen(6060, () => {
-            console.log("Server is running on port 6001");
+            console.log("Server is running on port 6060");
         });
 
         console.log("Connected to MongoDB");
