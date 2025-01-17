@@ -46,11 +46,6 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
         // Add a new doctor
         app.post('/doctor', async (req, res) => {
             try {
-                const { name, specialization } = req.body;
-                if (!name || !specialization) {
-                    return res.status(400).send({ message: 'Name and specialization are required' });
-                }
-
                 const doctor = new Doctor({ ...req.body });
                 const savedDoctor = await doctor.save();
                 res.send(savedDoctor);

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ViewDoctor() {
     const [data, setData] = useState([]);
-    const apiurl = process.env.REACT_APP_API_URL || 'http://localhost:6060/doctor';
+    const apiurl ='http://localhost:6060/doctor';
 
     useEffect(() => {
         fetch(apiurl)
@@ -27,14 +28,28 @@ function ViewDoctor() {
             <td>{doctor.phone}</td>
             <td>{doctor.experience}</td>
             <td>{doctor.availability}</td>
-            <td>{doctor.address}</td>
-            <td>{doctor.gender}</td>
-            <td>{doctor.qualification_degree}</td>
-            <td>{doctor.current_workplace}</td>
-            <td>{doctor.emergency_contact_name}</td>
-            <td>{doctor.emergency_contact}</td>
-            <td>{doctor.preferred_mode_of_communication}</td>
-            <td>{doctor.dob}</td>
+            <td>
+                <Link 
+                  className="btn btn-info" 
+                  style={{ marginRight: '20px' }} 
+                //   to={'/'}
+                >
+                  Read More
+                </Link>
+                <Link 
+                  className="btn btn-warning" 
+                  style={{ marginRight: '20px' }} 
+                //   to={'/'}
+                >
+                  Edit
+                </Link>
+                <button 
+                  className="btn btn-danger" 
+                //   onClick={() => handleDelete(patient.number)}
+                >
+                  Delete
+                </button>
+            </td>
         </tr>
     ));
 
@@ -52,14 +67,7 @@ function ViewDoctor() {
                             <th>Phone Number</th>
                             <th>Experience</th>
                             <th>Availability</th>
-                            <th>Address</th>
-                            <th>Gender</th>
-                            <th>Qualification/Degree</th>
-                            <th>Current Workplace/Hospital Name</th>
-                            <th>Emergency Contact Name</th>
-                            <th>Emergency Contact Number</th>
-                            <th>Preferred Mode of Communication</th>
-                            <th>Date of Birth</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>{formatDoctor}</tbody>
