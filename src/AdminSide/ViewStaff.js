@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './AdminManagement.css';
+import './ViewStaff.css';
 
 function ViewStaff() {
   const [data, setData] = useState([]);
@@ -33,28 +33,27 @@ function ViewStaff() {
       <td>{staff.fullName}</td>
       <td>{staff.gender}</td>
       <td>
-        <Link
-          className="btn btn-info"
-          style={{ marginRight: "20px" }}
-          to={`/admin/viewStaffByNumber/${staff.number}`} // Navigate by 'number'
-        >
-          Read More
-        </Link>
+        <div className="action-buttons">
+          <Link
+            className="btn btn-info"
+            to={`/admin/viewStaffByNumber/${staff.number}`}
+          >
+            Read More
+          </Link>
 
-        <Link
-          className="btn btn-warning"
-          style={{ marginRight: "20px" }}
-          to={`/admin/editStaff/${staff.number}`} // Navigate to edit page
-        >
-          Edit
-        </Link>
-
-        <button
-          className="btn btn-danger"
-          onClick={() => handleDelete(staff.number)}
-        >
-          Delete
-        </button>
+          <Link
+            className="btn btn-warning"
+            to={`/admin/editStaff/${staff.number}`}
+          >
+            Edit
+          </Link>
+          <button
+            className="btn btn-danger"
+            onClick={() => handleDelete(staff.number)}
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   ));

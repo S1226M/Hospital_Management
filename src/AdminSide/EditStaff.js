@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import './EditStaff.css'
 
 function EditStaff() {
     const { number } = useParams();
@@ -19,11 +20,11 @@ function EditStaff() {
         department: "",
     });
 
-    const apiUrl = 'http://localhost:5000/staff/' + number; // Use the correct variable name here
+    const apiUrl = `http://localhost:5000/staff/${number}`; // Ensure API URL is correct
 
     // Fetch staff details by ID
     useEffect(() => {
-        fetch(apiUrl) // Make sure to use `apiUrl` here
+        fetch(apiUrl)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch staff details");
@@ -49,6 +50,14 @@ function EditStaff() {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Validate department before submitting
+        const validDepartments = ["Pediatrics", "Orthopedics", "Cardiology", "Emergency", "Urology", "Gastroenterology", "Pathology"];
+        if (!validDepartments.includes(staff.department)) {
+            alert("Invalid Department");
+            return;
+        }
+
         fetch(apiUrl, {
             method: "PUT",
             headers: {
@@ -62,19 +71,13 @@ function EditStaff() {
             }
             navigate('/admin/viewStaff');
         })
-        .then((data) => {
-            console.log("Staff updated successfully:", data);
-            alert("Staff details updated!");
+        .then(() => {
+            alert("Staff details updated successfully!");
         })
         .catch((err) => {
             console.error(err);
             alert("Error updating staff details");
         });
-
-        const validDepartments = ["Pediatrics","Orthopedics","Cardiology","Emergency","Urology","Gastroenterology","Pathology"]
-        if(!validDepartments.includes(staff.department)){
-            alert("Invalid Department");
-        }
     };
 
     if (error) {
@@ -106,7 +109,7 @@ function EditStaff() {
                                 <input
                                     type="text"
                                     name="fullname"
-                                    value={staff.fullName}
+                                    value={staff.fullname}
                                     onChange={handleInputChange}
                                     className="form-control"
                                     required

@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './AddStaff.css'
 
-function AddStaff(){
-  const [data , setData] = useState({
-    id : "Adhar Card",
-    fullName : "",
-    number : "",
-    gender : "",
-    street : "",
-    city : "",
-    state : "",
-    pin : "",
-    country : "India",
-    department : ""
+function AddStaff() {
+  const [data, setData] = useState({
+    id: "Adhar Card",
+    fullName: "",
+    number: "",
+    gender: "",
+    street: "",
+    city: "",
+    state: "",
+    pin: "",
+    country: "India",
+    department: ""
   });
 
   const navigate = useNavigate();
@@ -21,20 +22,20 @@ function AddStaff(){
 
     const apiUrl = "http://localhost:5000/staff";
 
-    //number validation
-    if((data.number).length !== 10){
+    // Number validation
+    if (data.number.length !== 10) {
       alert("Invalid Number. Please enter 10 digit number");
       return;
     }
 
-    //pin validation
-    else if((data.pin).length !== 6){
+    // Pin validation
+    else if (data.pin.length !== 6) {
       alert("Invalid Pin. Please enter 6 digit pin");
       return;
     }
 
-    //all done then after add staff
-    else{
+    // Submit the data if everything is valid
+    else {
       fetch(apiUrl, {
         method: "POST",
         body: JSON.stringify(data),
@@ -42,158 +43,194 @@ function AddStaff(){
           "Content-Type": "application/json",
         },
       })
-      .then((res) => res.json())
-      .then((result) => {
-        navigate("/admin/viewStaff");
-      })
-      .catch((error) => console.error("Error:", error));
+        .then((res) => res.json())
+        .then((result) => {
+          navigate("/admin/viewStaff");
+        })
+        .catch((error) => console.error("Error:", error));
     }
-  }
-    return(
-        <form className="add-staff-form" onSubmit={handleSubmit}>
-            <h2 className="add-staff-form-title">Add staff Information</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td className="add-staff-form-cell">ID</td>
-                        <td className="add-staff-form-cell">
-                            <select
-                             className="input-field"
-                             value={data.idType}
-                             onChange={(e) => setData({ ...data, id: e.target.value })}
-                            >
-                                <option>Adhar Card</option>
-                                <option>Driving License</option>
-                                <option>Passport</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="add-staff-form-cell">Full Name</td>
-                        <td className="add-staff-form-cell">
-                          <input
-                            className="input-field"
-                            type="text"
-                            value={data.fullName}
-                            onChange={(e) => setData({ ...data, fullName: e.target.value })}
-                            required
-                          />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="add-staff-form-cell">Phone Number</td>
-                        <td className="add-staff-form-cell">
-                        <input
-                          type="text"
-                          value={data.number}
-                          onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9]/g, "");
-                            setData({ ...data, number: value });
-                          }}
-                          placeholder="Enter 10-digit number"
-                        />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="add-staff-form-cell">Gender</td>
-                        <td className="add-staff-form-cell">
-                          <div className="gender-options">
-                            <label>
-                              <input
-                                type="radio"
-                                name="Gender"
-                                value="male"
-                                checked={data.gender === "male"}
-                                onChange={(e) => setData({ ...data, gender: e.target.value })}
-                              />
-                              Male
-                            </label>
-                            <label>
-                              <input
-                                type="radio"
-                                name="Gender"
-                                value="female"
-                                checked={data.gender === "female"}
-                                onChange={(e) => setData({ ...data, idType: e.target.value })}
-                              />
-                              Female
-                            </label>
-                          </div>
-                        </td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor="street">Street Address:</label></td>
-                      <td><input 
-                            type="text" id="street" name="street" placeholder="123 Main Street" required 
-                            value={data.street}
-                            onChange={(e) => setData({ ...data, street: e.target.value })}
-                          />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor="city">City:</label></td>
-                      <td><input 
-                            type="text" id="city" name="city" placeholder="City" required 
-                            value={data.city}
-                            onChange={(e) => setData({ ...data, city: e.target.value })}  
-                          />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor="state">State:</label></td>
-                      <td><input 
-                            type="text" id="state" name="state" placeholder="State" required 
-                            value={data.state}
-                            onChange={(e) => setData({ ...data, state: e.target.value })}
-                          />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor="postalCode">Postal/ZIP Code:</label></td>
-                      <td><input 
-                            type="text" id="postalCode" name="postalCode" placeholder="10001" required 
-                            value={data.pin}
-                            onChange={(e) => setData({ ...data, pin: e.target.value })}
-                          />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor="country">Country:</label></td>
-                      <td><input 
-                            type="text" id="country" name="country" placeholder="Country" required 
-                            value={data.country}
-                            onChange={(e) => setData({ ...data, country: e.target.value })}
-                          />
-                      </td>
-                    </tr>
-                    <tr>
-                        <td className="add-staff-form-cell">Department</td>
-                        <td className="add-staff-form-cell">
-                            <select
-                             className="input-field"
-                             value={data.department}
-                             onChange={(e) => setData({ ...data, department: e.target.value })}
-                            >
-                                <option>Pediatrics</option>
-                                <option>Orthopedics</option>
-                                <option>Cardiology</option>
-                                <option>Gynecology</option>
-                                <option>Emergency</option>
-                                <option>Urology</option>
-                                <option>Gastroenterology</option>
-                                <option>Pathology</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                      <td colSpan="2" style={{ textAlign: "center" }}>
-                        <button type="submit">Submit</button>
-                      </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-    )
+  };
+
+  return (
+    <form className="add-staff-form" onSubmit={handleSubmit}>
+      <h2 className="add-staff-form-title">Add staff Information</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td className="add-staff-form-cell">ID</td>
+            <td className="add-staff-form-cell">
+              <select
+                className="input-field"
+                value={data.id}
+                onChange={(e) => setData({ ...data, id: e.target.value })}
+              >
+                <option>Adhar Card</option>
+                <option>Driving License</option>
+                <option>Passport</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td className="add-staff-form-cell">Full Name</td>
+            <td className="add-staff-form-cell">
+              <input
+                className="input-field"
+                type="text"
+                value={data.fullName}
+                onChange={(e) => setData({ ...data, fullName: e.target.value })}
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="add-staff-form-cell">Phone Number</td>
+            <td className="add-staff-form-cell">
+              <input
+                type="text"
+                value={data.number}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/[^0-9]/g, "");
+                  setData({ ...data, number: value });
+                }}
+                placeholder="Enter 10-digit number"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="add-staff-form-cell">Gender</td>
+            <td className="add-staff-form-cell">
+              <div className="gender-options">
+                <label>
+                  <input
+                    type="radio"
+                    name="Gender"
+                    value="male"
+                    checked={data.gender === "male"}
+                    onChange={(e) => setData({ ...data, gender: e.target.value })}
+                  />
+                  Male
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="Gender"
+                    value="female"
+                    checked={data.gender === "female"}
+                    onChange={(e) => setData({ ...data, gender: e.target.value })}
+                  />
+                  Female
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="street">Street Address:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                placeholder="123 Main Street"
+                required
+                value={data.street}
+                onChange={(e) => setData({ ...data, street: e.target.value })}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="city">City:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="City"
+                required
+                value={data.city}
+                onChange={(e) => setData({ ...data, city: e.target.value })}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="state">State:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="State"
+                required
+                value={data.state}
+                onChange={(e) => setData({ ...data, state: e.target.value })}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="postalCode">Postal/ZIP Code:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="postalCode"
+                name="postalCode"
+                placeholder="10001"
+                required
+                value={data.pin}
+                onChange={(e) => setData({ ...data, pin: e.target.value })}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="country">Country:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                placeholder="Country"
+                required
+                value={data.country}
+                onChange={(e) => setData({ ...data, country: e.target.value })}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="add-staff-form-cell">Department</td>
+            <td className="add-staff-form-cell">
+              <select
+                className="input-field"
+                value={data.department}
+                onChange={(e) => setData({ ...data, department: e.target.value })}
+              >
+                <option>Pediatrics</option>
+                <option>Orthopedics</option>
+                <option>Cardiology</option>
+                <option>Gynecology</option>
+                <option>Emergency</option>
+                <option>Urology</option>
+                <option>Gastroenterology</option>
+                <option>Pathology</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2" style={{ textAlign: "center" }}>
+              <button type="submit">Submit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  );
 }
 
 export default AddStaff;

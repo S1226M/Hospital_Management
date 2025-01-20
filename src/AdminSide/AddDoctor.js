@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import './AddDoctor.css';
 import { useNavigate } from "react-router-dom";
+import './AddDoctor.css';
 
 function AddDoctor() {
     const [data, setData] = useState({

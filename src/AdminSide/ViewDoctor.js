@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import './AdminManagement.css'
 
 function ViewDoctor() {
     const [data, setData] = useState([]);
@@ -19,38 +20,37 @@ function ViewDoctor() {
 
     let i = 0;
     const formatDoctor = data.map((doctor) => (
-        <tr key={doctor._id || doctor.email}>
-            <td>{++i}</td>
-            <td>{doctor.name}</td>
-            <td>{doctor.specialization}</td>
-            <td>{doctor.department}</td>
-            <td>{doctor.email}</td>
-            <td>{doctor.phone}</td>
-            <td>{doctor.experience}</td>
-            <td>{doctor.availability}</td>
-            <td>
-                <Link 
-                  className="btn btn-info" 
-                  style={{ marginRight: '20px' }} 
-                //   to={'/'}
-                >
-                  Read More
-                </Link>
-                <Link 
-                  className="btn btn-warning" 
-                  style={{ marginRight: '20px' }} 
-                //   to={'/'}
-                >
-                  Edit
-                </Link>
-                <button 
-                  className="btn btn-danger" 
-                //   onClick={() => handleDelete(patient.number)}
-                >
-                  Delete
-                </button>
-            </td>
-        </tr>
+      <tr key={doctor._id || doctor.email}>
+        <td>{++i}</td>
+        <td>{doctor.name}</td>
+        <td>{doctor.specialization}</td>
+        <td>{doctor.department}</td>
+        <td>{doctor.email}</td>
+        {/* <td>{doctor.availability}</td> */}
+        {/* <td>{doctor.phone}</td> */}
+        {/* <td>{doctor.experience}</td> */}
+        <td>
+          <Link 
+            className="btn-read"
+            style={{marginLeft : "0px"}}
+            // to={'/'}
+          >
+            Read More
+          </Link>
+          <Link 
+            className="btn-edit"
+            // to={'/'}
+          >
+            Edit
+          </Link>
+          <button 
+            className="btn-delete"
+            // onClick={() => handleDelete(patient.number)}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
     ));
 
     return (
@@ -64,9 +64,9 @@ function ViewDoctor() {
                             <th>Specialization</th>
                             <th>Department</th>
                             <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Experience</th>
-                            <th>Availability</th>
+                            {/* <th>Availability</th> */}
+                            {/* <th>Phone Number</th> */}
+                            {/* <th>Experience</th> */}
                             <th>Action</th>
                         </tr>
                     </thead>
