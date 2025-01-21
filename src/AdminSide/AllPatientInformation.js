@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../StaffSide/PatientInfo/PatientInfo.css'
 
 function AllPatientInformation() {
   const [data, setData] = useState([]); // Fixed typo: 'onst' to 'const'
@@ -29,25 +30,26 @@ function AllPatientInformation() {
       <td>{patient.roomNumber || patient.ROOM_NO}</td>
       <td>
         <Link
-          className="btn btn-info"
-          style={{ marginRight: '20px' }}
+          className="btn-read"
+          style={{ marginRight: '20px' , float: 'left'}}
           to={'/layout/patient/' + patient.number}
         >
           Read More
         </Link>
         <Link
-          className="btn btn-warning"
-          style={{ marginRight: '20px' }}
+          className="btn-edit"
+          style={{ marginRight: '20px' , float: 'left'}}
           to={'/layout/patient/edit/' + patient.number}
         >
           Edit
         </Link>
-        <button
-          className="btn btn-danger"
+        <Link
+          className="btn-delete"
+          style={{float: 'left'}}
           onClick={() => handleDelete(patient.number)}
         >
           Delete
-        </button>
+        </Link>
       </td>
     </tr>
   ));

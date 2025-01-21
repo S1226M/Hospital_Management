@@ -35,24 +35,27 @@ function ViewStaff() {
       <td>
         <div className="action-buttons">
           <Link
-            className="btn btn-info"
+            className="btn-read"
+            style={{ marginRight: '20px' , float: 'left'}}
             to={`/admin/viewStaffByNumber/${staff.number}`}
           >
             Read More
           </Link>
 
           <Link
-            className="btn btn-warning"
+            className="btn-edit"
+            style={{ marginRight: '20px' , float: 'left'}}
             to={`/admin/editStaff/${staff.number}`}
           >
             Edit
           </Link>
-          <button
-            className="btn btn-danger"
+          <Link
+            className="btn-delete"
+            style={{float: 'left'}}
             onClick={() => handleDelete(staff.number)}
           >
             Delete
-          </button>
+          </Link>
         </div>
       </td>
     </tr>

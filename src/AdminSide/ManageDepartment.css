@@ -26,10 +26,6 @@
   width: 200px;
 }
 
-/* .addDepartmentButton:hover {
-  background-color: #0056b3;
-} */
-
 /* Table styling */
 .table {
   width: 100%;
@@ -51,6 +47,10 @@
 .view-btn{
     background-color: #17a2b8;
   }
+
+.view-btn:hover{
+  background-color: #083f48;
+}
   
   /* Style for danger buttons (Delete) */
   .btn-danger {
@@ -59,10 +59,10 @@
   }
   
   /* Optional: More specific selector to avoid conflicts */
-  /* table .btn-danger {
+   table .btn-danger {
     background-color: #dc3545;
     color: white;
-  } */
+  } 
     
 /* Add department form styling */
 .add-department-container {
