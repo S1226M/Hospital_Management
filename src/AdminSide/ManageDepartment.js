@@ -13,6 +13,7 @@ function ManageDepartment() {
 
   // Show the form when "Add Department" button is clicked
   const handleAddDepartmentClick = () => {
+    console.log("Add Department button clicked"); // Debug log
     setShowAddForm(true);
   };
 
@@ -98,7 +99,7 @@ function ManageDepartment() {
               <th>No.</th>
               <th>Department Name</th>
               <th>Department ID</th>
-              <th>View Staff</th>
+              <th style={{width : '220px'}}>View Staff</th>
               <th>Actions</th>
             </tr>
           </thead>

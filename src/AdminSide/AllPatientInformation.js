@@ -31,21 +31,19 @@ function AllPatientInformation() {
       <td>
         <Link
           className="btn-read"
-          style={{ marginRight: '20px' , float: 'left'}}
+          style={{marginRight : '50px' , marginLeft : '20px'}}
           to={'/layout/patient/' + patient.number}
         >
           Read More
         </Link>
         <Link
           className="btn-edit"
-          style={{ marginRight: '20px' , float: 'left'}}
           to={'/layout/patient/edit/' + patient.number}
         >
           Edit
         </Link>
         <Link
           className="btn-delete"
-          style={{float: 'left'}}
           onClick={() => handleDelete(patient.number)}
         >
           Delete
@@ -64,7 +62,7 @@ function AllPatientInformation() {
             <th className="Fild">Patient Name</th>
             <th className="Fild">Number</th>
             <th className="Fild">Room</th>
-            <th className="Fild">Actions</th>
+            <th style={{width : '400px'}} className="Fild">Actions</th>
           </tr>
         </thead>
         <tbody>{formattedPatients}</tbody>

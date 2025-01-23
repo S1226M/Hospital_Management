@@ -1,96 +1,114 @@
-/* Basic container for department management */
+/* Container Styling */
 .departmentInformationContainer {
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.departmentInformationContainer.blurred {
-  filter: blur(5px); /* Adds blur effect when the add form is shown */
-}
-
-/* Heading styling */
 .manageDepartmentHeading {
-  font-size: 2rem;
-  margin-bottom: 20px;
   float: left;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-/* Button styling */
 .addDepartmentButton {
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
   float: right;
   width: 200px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-/* Table styling */
+.addDepartmentButton:hover {
+  background-color: #218838;
+}
+
+/* Table Styling */
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
 }
 
-.table th, .table td {
+.table thead th {
+  background-color: #1b4281;
+  color: white;
   padding: 12px;
   text-align: left;
   border: 1px solid #ddd;
 }
 
-.table th {
-  /* background-color: #007bff; */
-  /* color: white; */
+.table tbody td {
+  padding: 12px;
+  border: 1px solid #ddd;
 }
 
-/* Style for info buttons (View Staff) */
-.view-btn{
-    background-color: #17a2b8;
-  }
-
-.view-btn:hover{
-  background-color: #083f48;
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
-  
-  /* Style for danger buttons (Delete) */
-  .btn-danger {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  /* Optional: More specific selector to avoid conflicts */
-   table .btn-danger {
-    background-color: #dc3545;
-    color: white;
-  } 
-    
-/* Add department form styling */
+
+.table tbody tr:hover {
+  background-color: #eaf7e6;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* View Staff Button */
+.view-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.view-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add Department Form */
 .add-department-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.add-department-container.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.add-department-form {
-  background-color: white;
-  padding: 30px;
-  border-radius: 5px;
+  display: none; /* Default hidden */
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 400px;
+}
+
+.add-department-container.visible{
+  display: block; /* Visible when .visible class is applied */  
+}
+
+.add-department-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .add-department-form .form-group {
@@ -99,34 +117,41 @@
 
 .add-department-form label {
   display: block;
+  font-size: 14px;
+  color: #555;
   margin-bottom: 5px;
 }
 
 .add-department-form input {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 .add-btn {
-  /* background-color: #007bff; */
-  /* color: white; */
-  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
   border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .add-btn:hover {
-  background-color: #0083b3;
+  background-color: #218838;
 }
 
 .close-form-btn {
   background-color: #6c757d;
   color: white;
-  padding: 10px 20px;
   border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -134,9 +159,8 @@
   background-color: #5a6268;
 }
 
-.view{
-    width: 200px;
-}
-.btn.view-btn{
-    background-color: rgb(68, 156, 169);
+/* Blur Effect when Form is Open */
+.departmentInformationContainer.blurred {
+  filter: blur(5px);
+  pointer-events: none;
 }

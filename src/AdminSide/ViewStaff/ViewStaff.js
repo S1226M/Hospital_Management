@@ -36,7 +36,7 @@ function ViewStaff() {
         <div className="action-buttons">
           <Link
             className="btn-read"
-            style={{ marginRight: '20px' , float: 'left'}}
+            style={{ marginRight: '50px' , marginLeft : '20px'}}
             to={`/admin/viewStaffByNumber/${staff.number}`}
           >
             Read More
@@ -71,7 +71,7 @@ function ViewStaff() {
             <th>Number</th>
             <th>Staff Name</th>
             <th>Gender</th>
-            <th>Actions</th>
+            <th style={{width : '500px'}}>Actions</th>
           </tr>
         </thead>
         <tbody>{formatStaff}</tbody>

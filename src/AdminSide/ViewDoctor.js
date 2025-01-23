@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import './AdminManagement.css'
+import './ViewDoctor.css'
 
 function ViewDoctor() {
     const [data, setData] = useState([]);
@@ -23,21 +23,21 @@ function ViewDoctor() {
       <tr key={doctor._id || doctor.email}>
         <td>{++i}</td>
         <td>{doctor.name}</td>
-        <td>{doctor.specialization}</td>
         <td>{doctor.department}</td>
         <td>{doctor.email}</td>
+        {/* <td>{doctor.specialization}</td> */}
         {/* <td>{doctor.availability}</td> */}
         {/* <td>{doctor.phone}</td> */}
         {/* <td>{doctor.experience}</td> */}
         <td>
           <Link 
             className="btn-read"
-            style={{marginLeft : "0px"}}
+            style={{marginRight : '50px' , marginLeft : '20px'}}
             // to={'/'}
           >
             Read More
           </Link>
-          <Link 
+          <Link
             className="btn-edit"
             // to={'/'}
           >
@@ -61,13 +61,13 @@ function ViewDoctor() {
                         <tr>
                             <th>No.</th>
                             <th>Doctor Name</th>
-                            <th>Specialization</th>
                             <th>Department</th>
                             <th>Email</th>
+                            <th style={{width : '400px'}}>Action</th>
+                            {/* <th>Specialization</th> */}
                             {/* <th>Availability</th> */}
                             {/* <th>Phone Number</th> */}
                             {/* <th>Experience</th> */}
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>{formatDoctor}</tbody>

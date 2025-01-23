@@ -23,13 +23,13 @@ import ForgotPassword from './Login&Logout/ForgotPassword'
 import AdminLayout from './AdminSide/AdminLayout';
 import AdminDashboard from './AdminSide/AdminDashboard';
 import AddStaff from './AdminSide/AddStaff';
-import ViewStaff from './AdminSide/ViewStaff';
-import ViewStaffByNumber from './AdminSide/ViewStaffByNumber'
+import ViewStaff from './AdminSide/ViewStaff/ViewStaff';
+import ViewStaffByNumber from './AdminSide/ViewStaff/ViewStaffByNumber'
 import EditStaff from './AdminSide/EditStaff'
 import AllPatientInformation from './AdminSide/AllPatientInformation';
 import AddPatientFromAdmin from './AdminSide/AddPatientFromAdmin';
 import ManageDepartment from './AdminSide/ManageDepartment';
-import ViewStaffOfThatDepartment from './AdminSide/ViewStaffOfThatDepartment';
+import ViewStaffOfThatDepartment from './AdminSide/ViewStaff/ViewStaffOfThatDepartment';
 import ViewDoctor from './AdminSide/ViewDoctor';
 import AddDoctor from './AdminSide/AddDoctor'
 
