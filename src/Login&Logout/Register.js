@@ -37,7 +37,7 @@ function Register() {
         <h2 className="form-title">Register</h2>
         <p>Welcome! 😊</p>
         <div className="user-options">
-          <label>
+          <label className='lb'>
             <input
               type="radio"
               name="User"
@@ -46,7 +46,7 @@ function Register() {
             />
             Admin
           </label>
-          <label>
+          <label className='lb'>
             <input
               type="radio"
               name="User"
@@ -87,7 +87,7 @@ function Register() {
             required
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <button type="submit" className="btn primary-btn">
+          <button type="submit" className="btn primary-btn" style={{marginLeft: '7px' , width : '250px'}}>
             Register
           </button>
         </form>

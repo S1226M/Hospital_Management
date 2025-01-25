@@ -92,7 +92,7 @@
 
 /* Add Department Form */
 .add-department-container {
-  display: none; /* Default hidden */
+  /* display: none; Default hidden */
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
@@ -129,6 +129,53 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
+/* Blur Effect for the Background */
+.departmentInformationContainer.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Modal Overlay for Dimming Background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 10; /* Behind the modal but above other elements */
+}
+
+/* Add Department Modal Container */
+.add-department-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20; /* Above the overlay */
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in Animation for Modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
 
 .add-btn {
   background-color: #28a745;

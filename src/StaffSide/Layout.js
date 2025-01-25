@@ -64,10 +64,11 @@ function Layout({ isLoggedIn, setIsLoggedIn }) {
       {/* Main Content Area */}
       <main className="main-content">
         <header className="header-container">
-          <h1 className='Title'>Welcome to the Hospital Management System</h1>
-              <button onClick={handleLogout} className="btn logout-btn">
-                Logout
-              </button>
+          <h1 className='Title'>Welcome to the Hospital Management System
+        <button onClick={handleLogout} className="btn logout-btn" style={{marginTop : '0px' , marginLeft : '540px'}}>
+            Logout
+          </button>
+          </h1>
         </header>
         <div className="content-area">
           <Outlet />

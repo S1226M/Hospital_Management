@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './PatientInfo.css'
 
 function PatientInfo() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); // Fixed typo: 'onst' to 'const'
   const apiurl = 'http://localhost:4000/patient';
 
   useEffect(() => {
@@ -14,39 +14,40 @@ function PatientInfo() {
   }, []);
 
   const handleDelete = (number) => {
-    fetch('http://localhost:4000/patient/' + number, { 
+    fetch('http://localhost:4000/patient/' + number, {
       method: 'DELETE',
-    })
-      .then(() => {
-        setData(data.filter((patient) => patient.number !== number));
-      });
+    }).then(() => {
+      setData(data.filter((patient) => patient.number !== number));
+    });
   };
 
   let i = 0;
   const formattedPatients = data.map((patient) => (
     <tr key={patient.number}>
       <td>{++i}</td>
-      <td>{patient.fullName || patient.Name}</td> 
-      <td>{patient.number || patient.Number}</td> 
+      <td>{patient.fullName || patient.Name}</td>
+      <td>{patient.number || patient.Number}</td>
       <td>{patient.roomNumber || patient.ROOM_NO}</td>
       <td>
-        <Link 
-          className="btn btn-info" 
-          style={{ marginRight: '20px' }} 
-          to={'/layout/patient/' + patient.number}>
+        <Link
+          className="btn-read"
+          style={{marginRight : '50px' , marginLeft : '20px'}}
+          to={'/layout/patient/' + patient.number}
+        >
           Read More
         </Link>
-        <Link 
-          className="btn btn-warning" 
-          style={{ marginRight: '20px' }} 
-          to={'/layout/patient/edit/' + patient.number}>
+        <Link
+          className="btn-edit"
+          to={'/layout/patient/edit/' + patient.number}
+        >
           Edit
         </Link>
-        <button 
-          className="btn btn-danger" 
-          onClick={() => handleDelete(patient.number)}>
+        <Link
+          className="btn-delete"
+          onClick={() => handleDelete(patient.number)}
+        >
           Delete
-        </button>
+        </Link>
       </td>
     </tr>
   ));
@@ -57,11 +58,11 @@ function PatientInfo() {
       <table className="table">
         <thead>
           <tr>
-            <th className='Fild'>No.</th>
-            <th className='Fild'>Patient Name</th>
-            <th className='Fild'>Number</th>
-            <th className='Fild'>Room</th>
-            <th className='Fild'>Actions</th>
+            <th className="Fild">No.</th>
+            <th className="Fild">Patient Name</th>
+            <th className="Fild">Number</th>
+            <th className="Fild">Room</th>
+            <th style={{width : '400px'}} className="Fild">Actions</th>
           </tr>
         </thead>
         <tbody>{formattedPatients}</tbody>

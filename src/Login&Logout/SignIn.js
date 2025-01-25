@@ -1,6 +1,7 @@
 import React , { useState } from 'react';
-import './SignIn&SignUp.css';
 import { useNavigate } from 'react-router-dom';
+import './SignIn&SignUp.css';
+import img from '../images/Patient-Login.jpg'
 
 function SignIn({ setIsLoggedIn }) {
   const [data, setData] = useState({
@@ -63,7 +64,7 @@ function SignIn({ setIsLoggedIn }) {
           <div className="options-container">
             <span className="forgot-password">Forgot password?</span>
           </div>
-          <button type="submit" className="btn primary-btn">Sign In</button>
+          <button type="submit" className="btn primary-btn" style={{marginLeft : '7px' , width : '250px'}}>Sign In</button>
         </form>
         <div className="form-footer">
           <p>

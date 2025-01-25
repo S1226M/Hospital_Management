@@ -13,8 +13,9 @@ function ManageDepartment() {
 
   // Show the form when "Add Department" button is clicked
   const handleAddDepartmentClick = () => {
-    console.log("Add Department button clicked"); // Debug log
     setShowAddForm(true);
+    console.log("Add Department button clicked"); // Debug log
+    console.log(showAddForm); // Debug log
   };
 
   // Close the form
@@ -90,56 +91,90 @@ function ManageDepartment() {
 
   return (
     <>
-      <div className={'departmentInformationContainer ${showAddForm ? "blurred" : ""}'}>
+      {/* Department Information Container */}
+      <div
+        className={`departmentInformationContainer ${
+          showAddForm ? "blurred" : ""
+        }`}
+      >
         <h2 className="manageDepartmentHeading">Manage Department</h2>
-        <button className="addDepartmentButton" onClick={handleAddDepartmentClick}>Add Department</button>
+        <button
+          className="addDepartmentButton"
+          onClick={handleAddDepartmentClick}
+        >
+          Add Department
+        </button>
         <table className="table">
           <thead>
             <tr>
               <th>No.</th>
               <th>Department Name</th>
               <th>Department ID</th>
-              <th style={{width : '220px'}}>View Staff</th>
+              <th style={{ width: "220px" }}>View Staff</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>{formatDepartment}</tbody>
         </table>
       </div>
-
+  
+      {/* Modal for Add Department Form */}
       {showAddForm && (
-        <div className={`add-department-container ${showAddForm ? "visible" : ""}`}>
-          <h2>Add Department</h2>
-          <form className="add-department-form" onSubmit={handleDepartmentSubmition}>
-            <div className="form-group">
-              <label htmlFor="departmentName">Department Name</label>
-              <input
-                type="text"
-                id="departmentName"
-                placeholder="Enter Department Name"
-                value={formData.departmentName}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="departmentId">Department ID</label>
-              <input
-                type="text"
-                id="departmentId"
-                placeholder="Enter Department ID"
-                value={formData.departmentId}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <button type="submit" className="add-btn">Add Department</button>
-            <button type="button" className="close-form-btn" onClick={handleFormClose}>Close</button>
-          </form>
-        </div>
+        <>
+          {/* Modal Overlay */}
+          <div className="modal-overlay" onClick={handleFormClose}></div>
+  
+          {/* Modal Form */}
+          <div
+            className={`add-department-container ${
+              showAddForm ? "visible" : ""
+            }`}
+          >
+            <h2>Add Department</h2>
+            <form
+              className="add-department-form"
+              onSubmit={handleDepartmentSubmition}
+            >
+              <div className="form-group">
+                <label htmlFor="departmentName">Department Name</label>
+                <input
+                  type="text"
+                  id="departmentName"
+                  placeholder="Enter Department Name"
+                  value={formData.departmentName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="departmentId">Department ID</label>
+                <input
+                  type="text"
+                  id="departmentId"
+                  placeholder="Enter Department ID"
+                  value={formData.departmentId}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <button type="submit" className="add-btn">
+                Add Department
+              </button>
+              <button
+                type="button"
+                className="close-form-btn"
+                onClick={handleFormClose}
+              >
+                Close
+              </button>
+            </form>
+          </div>
+        </>
       )}
     </>
   );
+  
+  
 }
 
 export default ManageDepartment;
