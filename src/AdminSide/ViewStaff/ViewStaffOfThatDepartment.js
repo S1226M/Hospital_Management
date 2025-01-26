@@ -7,24 +7,36 @@ function ViewStaffOfThatDepartment() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/staff/${department}`)
+    // Log the department parameter to verify it's being passed correctly
+    console.log("Fetching staff for department:", department);
+
+    fetch(`http://localhost:5000/staff/department/${department}`)
       .then((res) => {
         if (!res.ok) {
+          // If status code is not OK, throw an error
           throw new Error("Failed to fetch staff data");
         }
         return res.json();
       })
-      .then((data) => setStaff(Array.isArray() ? data : [data])) 
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setStaff(data); // If data is an array, set it to the state
+        } else {
+          setStaff([data]); // If it's a single object, wrap it in an array
+        }
+      })
       .catch((err) => {
         console.error(err);
         setError("Error fetching staff details");
       });
   }, [department]);
 
+  // Error handling if there's an issue with fetching
   if (error) {
     return <p>{error}</p>;
   }
 
+  // If there are no staff records for the department
   if (!staff.length) {
     return <p>No staff details found for this department.</p>;
   }
@@ -47,17 +59,17 @@ function ViewStaffOfThatDepartment() {
           </tr>
         </thead>
         <tbody>
-          {staff.map((staff) => (
-            <tr key={staff.number}>
-              <td>{staff.number || "N/A"}</td>
-              <td>{staff.fullName || "N/A"}</td>
-              <td>{staff.gender || "N/A"}</td>
-              <td>{staff.street || "N/A"}</td>
-              <td>{staff.city || "N/A"}</td>
-              <td>{staff.state || "N/A"}</td>
-              <td>{staff.pin || "N/A"}</td>
-              <td>{staff.country || "N/A"}</td>
-              <td>{staff.department || "N/A"}</td>
+          {staff.map((staffMember) => (
+            <tr key={staffMember.number}>
+              <td>{staffMember.number || "N/A"}</td>
+              <td>{staffMember.fullName || "N/A"}</td>
+              <td>{staffMember.gender || "N/A"}</td>
+              <td>{staffMember.street || "N/A"}</td>
+              <td>{staffMember.city || "N/A"}</td>
+              <td>{staffMember.state || "N/A"}</td>
+              <td>{staffMember.pin || "N/A"}</td>
+              <td>{staffMember.country || "N/A"}</td>
+              <td>{staffMember.department || "N/A"}</td>
             </tr>
           ))}
         </tbody>

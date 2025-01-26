@@ -59,20 +59,20 @@ function App() {
           <Route path='appointmentData' element={<AppointmentData />} />
         </Route>
 
-        {/* admin         */}
-        <Route path="admin" element={<AdminLayout />} >
+        <Route path="admin" element={<AdminLayout />}>
           <Route path="adminDashboard" element={<AdminDashboard />} />
-          <Route path="addStaff" element={<AddStaff />}/>
+          <Route path="addStaff" element={<AddStaff />} />
           <Route path="viewStaff" element={<ViewStaff />} />
-          <Route path="/admin/viewStaffByNumber/:number" element={<ViewStaffByNumber />} />
-          <Route path='manageDepartment' element={<ManageDepartment />} />
-          <Route path='/admin/editStaff/:number' element={<EditStaff/>}/>  
+          <Route path="viewStaffByNumber/:number" element={<ViewStaffByNumber />} />
+          <Route path="manageDepartment" element={<ManageDepartment />} />
+          <Route path="editStaff/:number" element={<EditStaff />} />
           <Route path="allPatientInformation" element={<AllPatientInformation />} />
           <Route path="addPatientFromAdmin" element={<AddPatientFromAdmin />} />
-          <Route path='viewStaffOfThatDepartment' element={<ViewStaffOfThatDepartment />} />
-          <Route path='viewDoctor' element={<ViewDoctor />} />
-          <Route path='addDoctor' element={<AddDoctor />}/>
+          <Route path="viewStaffOfThatDepartment/:department" element={<ViewStaffOfThatDepartment />} /> {/* Fixed Route */}
+          <Route path="viewDoctor" element={<ViewDoctor />} />
+          <Route path="addDoctor" element={<AddDoctor />} />
         </Route>
+
         
         {/* patient */}
         <Route path='patientSideLayout' element={<LayOutPatientSide/>}>

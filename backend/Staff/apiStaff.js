@@ -50,7 +50,7 @@ mongoose.connect(connectionString)
       } catch (error) {
         res.status(500).send({ message: 'Error fetching staff details', error });
       }
-    });
+  });
 
     // Add a new staff
     app.post('/staff', async (req, res) => {

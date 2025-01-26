@@ -23,13 +23,13 @@ function AddStaff() {
     const apiUrl = "http://localhost:5000/staff";
 
     // Number validation
-    if (data.number.length !== 10) {
+    if (data.number.length > 0) {
       alert("Invalid Number. Please enter 10 digit number");
       return;
     }
 
     // Pin validation
-    else if (data.pin.length !== 6) {
+    else if (data.pin.length > 0) {
       alert("Invalid Pin. Please enter 6 digit pin");
       return;
     }

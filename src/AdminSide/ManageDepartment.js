@@ -63,6 +63,21 @@ function ManageDepartment() {
       .catch((error) => console.error("Error fetching data:", error)); // Handle fetch errors
   };
 
+  const handleDelete = (id) => {
+    const deleteUrl = `http://localhost:7000/department/${id}`;
+    fetch(deleteUrl, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to delete department");
+        }
+        // Filter out the deleted department from the data
+        setData((prevData) => prevData.filter((department) => department.departmentId !== id));
+      })
+      .catch((error) => console.error("Error deleting department:", error));
+  };
+
   // Fetch departments once when the component mounts
   useEffect(() => {
     fetchDepartments();
@@ -78,13 +93,17 @@ function ManageDepartment() {
       <td className="view">
         {/* Link to view staff of the department */}
         <Link
-          className="btn view-btn m-0 me-0" // Ensure this is correctly applied
+          className="btn view-btn m-0 me-0"
+          to={`/admin/viewStaffOfThatDepartment/${department.departmentName}`} // Correct dynamic path
         >
           View Staff
         </Link>
       </td>
       <td>
-        <button className="btn-danger">Delete</button>
+        <button className="btn-danger" 
+          onClick={() => handleDelete(department.departmentId)}>
+            Delete
+        </button>
       </td>
     </tr>
   ));

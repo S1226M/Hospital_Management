@@ -39,6 +39,22 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
             }
         });
 
+        app.delete('/department/:id', async (req, res) => {
+            try {
+                // Use departmentId if that’s the field in your database
+                const data = await Department.deleteOne({ departmentId: req.params.id });
+        
+                if (data.deletedCount === 0) {
+                    return res.status(404).send({ message: "Department not found" });
+                }
+        
+                res.status(200).send({ message: "Department deleted successfully", data });
+            } catch (error) {
+                res.status(500).send({ message: "Error deleting department", error });
+            }
+        });
+        
+
         // Start the server
         app.listen(7000, () => {
             console.log('Server is running on port 7000');
