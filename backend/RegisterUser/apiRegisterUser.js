@@ -38,7 +38,35 @@ mongoose.connect(connectionString)
       }
     });
     
-
+    app.post('/login', async (req, res) => {
+      try {
+        const { email, password } = req.body;
+    
+        // Check if email and password are provided
+        if (!email || !password) {
+          return res.status(400).send({ message: 'Email and password are required' });
+        }
+    
+        // Check if the user exists in the database
+        const user = await RegisterUser.findOne({ email });
+        if (!user) {
+          return res.status(401).send({ message: 'User not found' });
+        }
+    
+        // Check if the password matches
+        if (user.password !== password) {
+          return res.status(401).send({ message: 'Incorrect password' });
+        }
+    
+        // Successful login
+        res.status(200).send({ message: 'Login successful', user });
+    
+      } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).send({ message: 'Server error', error });
+      }
+    });
+    
     app.listen(8000, () => {
       console.log('Server is running on port 8000');
     });

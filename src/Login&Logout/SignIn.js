@@ -1,25 +1,40 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignIn&SignUp.css';
-import img from '../images/Patient-Login.jpg'
 
 function SignIn({ setIsLoggedIn }) {
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-
-  });
+  const [data, setData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(data.email === 'admin123@gmail.com' && data.password === 'admin@123'){
-      navigate('/admin')
-      setIsLoggedIn(true);
-    }
-    else{
-      navigate('/layout/home');
+    try {
+      const response = await fetch('http://localhost:8000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsLoggedIn(true);
+
+        // Navigate dynamically based on user role
+        if (result.role === 'admin') {
+          navigate('/admin');
+        } else if (result.role === 'staff') {
+          navigate('/staff-dashboard'); // Change route as needed
+        } else {
+          navigate('/layout/home');
+        }
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('Unable to connect to server.');
     }
   };
 
@@ -28,43 +43,24 @@ function SignIn({ setIsLoggedIn }) {
       <div className="form-wrapper">
         <h2 className="form-title">Sign-In</h2>
         <p>Welcome! 😊</p>
-        <tr>
-            <td className="form-table-cell">
-              <div className="gender-options">
-                <label>
-                  <input
-                    type="radio"
-                    name="User"
-                    value="admin"
-                  />
-                  Admin
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="User"
-                    value="staff"
-                  />
-                  Staff
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="User"
-                    value="patient"
-                  />
-                  Patient
-                </label>
-              </div>
-            </td>
-          </tr>
         <form onSubmit={handleSubmit} className="auth-form">
-          <input type="email" placeholder="Email Address" className="form-input" onChange={(e) => setData({ ...data, email: e.target.value })}/>
-          <input type="password" placeholder="Password" className="form-input" onChange={(e) => setData({ ...data, password: e.target.value })}/>
-          <div className="options-container">
-            <span className="forgot-password">Forgot password?</span>
-          </div>
-          <button type="submit" className="btn primary-btn" style={{marginLeft : '7px' , width : '250px'}}>Sign In</button>
+          <input 
+            type="email" 
+            placeholder="Email Address" 
+            className="form-input" 
+            onChange={(e) => setData({ ...data, email: e.target.value })} 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Password" 
+            className="form-input" 
+            onChange={(e) => setData({ ...data, password: e.target.value })} 
+            required 
+          />
+          <button type="submit" className="btn primary-btn" style={{ marginLeft: '7px', width: '250px' }}>
+            Sign In
+          </button>
         </form>
         <div className="form-footer">
           <p>
