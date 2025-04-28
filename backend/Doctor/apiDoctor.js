@@ -54,6 +54,11 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
             }
         });
 
+        app.delete('/doctor/:id' , async (req,res) => {
+            const data = await Doctor.deleteOne({number : req.params.number});
+            res.send(data);
+        })
+
         // Start the server
         app.listen(6060, () => {
             console.log("Server is running on port 6060");

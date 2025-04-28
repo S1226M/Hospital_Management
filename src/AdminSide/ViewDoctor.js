@@ -18,6 +18,10 @@ function ViewDoctor() {
             .catch((error) => console.error("Error fetching doctor data:", error));
     }, []);
 
+    // const handleDelete = (number) => {
+    //   fetch('')
+    // } 
+
     let i = 0;
     const formatDoctor = data.map((doctor) => (
       <tr key={doctor._id || doctor.email}>
@@ -45,7 +49,7 @@ function ViewDoctor() {
           </Link>
           <button 
             className="btn-delete"
-            // onClick={() => handleDelete(patient.number)}
+            // onClick={() => handleDelete(doctor.number)}
           >
             Delete
           </button>

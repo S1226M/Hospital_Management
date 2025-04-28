@@ -32,6 +32,8 @@ import ManageDepartment from './AdminSide/ManageDepartment';
 import ViewStaffOfThatDepartment from './AdminSide/ViewStaff/ViewStaffOfThatDepartment';
 import ViewDoctor from './AdminSide/ViewDoctor';
 import AddDoctor from './AdminSide/AddDoctor'
+import PatientInfoByIdAdmin from './AdminSide/PatientInfoByIdAdmin'
+import PatientEditById from './AdminSide/PatientEditById';
 
 //Patient Side
 import LayOutPatientSide from './PatientSideView/LayOutPatientSide';
@@ -59,6 +61,7 @@ function App() {
           <Route path='appointmentData' element={<AppointmentData />} />
         </Route>
 
+        {/*Admin*/}
         <Route path="admin" element={<AdminLayout />}>
           <Route path="adminDashboard" element={<AdminDashboard />} />
           <Route path="addStaff" element={<AddStaff />} />
@@ -67,6 +70,8 @@ function App() {
           <Route path="manageDepartment" element={<ManageDepartment />} />
           <Route path="editStaff/:number" element={<EditStaff />} />
           <Route path="allPatientInformation" element={<AllPatientInformation />} />
+          <Route path="/admin/PatientInfoByIdAdmin/:number" element={<PatientInfoByIdAdmin />} />
+          <Route path="/admin/patient/edit/:number" element={<PatientEditById />}/>
           <Route path="addPatientFromAdmin" element={<AddPatientFromAdmin />} />
           <Route path="viewStaffOfThatDepartment/:department" element={<ViewStaffOfThatDepartment />} /> {/* Fixed Route */}
           <Route path="viewDoctor" element={<ViewDoctor />} />

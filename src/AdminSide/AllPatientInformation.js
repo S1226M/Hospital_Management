@@ -32,13 +32,13 @@ function AllPatientInformation() {
         <Link
           className="btn-read"
           style={{marginRight : '50px' , marginLeft : '20px'}}
-          to={'/layout/patient/' + patient.number}
+          to={'/admin/PatientInfoByIdAdmin/' + patient.number}
         >
           Read More
         </Link>
         <Link
           className="btn-edit"
-          to={'/layout/patient/edit/' + patient.number}
+          to={'/admin/patient/edit/' + patient.number}
         >
           Edit
         </Link>
