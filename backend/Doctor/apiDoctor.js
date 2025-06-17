@@ -55,8 +55,18 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
         });
 
         app.delete('/doctor/:id' , async (req,res) => {
-            const data = await Doctor.deleteOne({number : req.params.number});
-            res.send(data);
+            try{
+                const data = await Doctor.deleteOne({number : req.params.number});
+                
+                if(data.deletedCount === 0){
+                    return res.status(404).send({ message: "Department not found" });
+                }
+                res.status(200).send({ message: "Department deleted successfully", data });
+                res.send(data);
+            }
+            catch (error){
+                res.status(500).send({ message: "Error deleting department", error });
+            }
         })
 
         // Start the server

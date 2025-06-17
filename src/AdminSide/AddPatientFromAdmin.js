@@ -139,7 +139,6 @@ function AddPatientFromAdmin(){
                   />
                 </td>
               </tr>
-              
               <tr>
                 <td className="form-table-cell">Allocated Room Number</td>
                 <td className="form-table-cell">
@@ -157,7 +156,6 @@ function AddPatientFromAdmin(){
                   </select>
                 </td>
               </tr>
-              
               <tr>
                 <td className="form-table-cell">Deposit</td>
                 <td className="form-table-cell">
@@ -202,5 +200,4 @@ function AddPatientFromAdmin(){
         </form>
       );
 }
-
 export default AddPatientFromAdmin;
